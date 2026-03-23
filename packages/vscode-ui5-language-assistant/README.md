@@ -95,10 +95,6 @@ and cannot be configured by the end user.
   - References to filter bars that cannot be found in current file
   - Use of context paths that do not lead to the annotations of types expected for the given building block
 
-#### Relevant User/Workspace
-
-- `UI5LanguageAssistant.LimitUniqueIdDiagnostics` is set off by default to check all `*.fragment.xml` and `*.view.xml` files for unique IDs. If you like to limit this validation to the current file, set it on.
-
 ### XML View Quick Fix
 
 #### Description
@@ -210,7 +206,7 @@ When working with CAP projects, make sure you have @sap/cds module installed. Fo
 
 ### Enabling offline work
 
-You can set up a local web server to host one or more supported versions of SAPUI5 SDK and register it in the user/workspace setting `"UI5LanguageAssistant.SAPUI5WebServer"`. This overrides the public CDN of SAPUI5 SDK in the extension and enables offline work with the apps having the matching hosted `"minUI5Version"` in `manifest.json`.
+You can set up a local web server to host one or more supported versions of SAP UI5 SDK and register it in the user/workspace setting `"UI5LanguageAssistant.SAPUI5WebServer"`. This overrides the public CDN of SAP UI5 SDK in the extension and enables offline work with the apps having the matching hosted `"minUI5Version"` in `manifest.json`.
 When configuring local web server, make sure it responds to the exact UI5 version defined in manifest.json e.g `<your.local.web.server>/1.111.0`
 
 **Note**: Once online, UI5 Language Assistant also caches required resources for offline usage and performance optimization.

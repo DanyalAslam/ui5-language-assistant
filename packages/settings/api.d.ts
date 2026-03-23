@@ -13,14 +13,10 @@ export type Settings = CodeAssistSettings &
   TraceSettings &
   LoggingSettings &
   WebServerSettings &
-  LimitUniqueIdDiagnostics &
   FormatterSettings;
 
 export interface WebServerSettings {
   SAPUI5WebServer?: string;
-}
-export interface LimitUniqueIdDiagnostics {
-  LimitUniqueIdDiagnostics: boolean;
 }
 export interface FormatterSettings {
   SplitAttributesOnFormat: boolean;

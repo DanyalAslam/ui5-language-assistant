@@ -48,7 +48,6 @@ describe("metaPath attribute value completion", () => {
       server: "off",
     },
     SplitAttributesOnFormat: true,
-    LimitUniqueIdDiagnostics: false,
   };
 
   const annotationSnippetCDS = `

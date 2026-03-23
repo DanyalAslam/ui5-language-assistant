@@ -1,6 +1,6 @@
 {
   "name": "@ui5-language-assistant/constant",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "private": true,
   "description": "constant variables used across packages",
   "keywords": [],
@@ -17,8 +17,8 @@
   "devDependencies": {},
   "scripts": {
     "ci": "npm-run-all clean compile lint",
-    "clean": "rimraf ./lib ./coverage ./nyc_output",
-    "compile": "yarn run clean && tsc -p .",
+    "clean": "rimraf ./lib ./coverage",
+    "compile": "pnpm run clean && tsc -p .",
     "compile:watch": "tsc -p . --watch",
     "lint": "eslint . --ext .ts --max-warnings=0 --ignore-path=../../.gitignore",
     "test": "echo nothing to test",

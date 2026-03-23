@@ -12,7 +12,6 @@ import { i18n } from "i18next";
 export enum ProjectName {
   cap = "cap",
   tsFreeStyle = "ts-free-style",
-  adp = "adp.test",
 }
 /**
  * Type of support project
@@ -20,7 +19,6 @@ export enum ProjectName {
 export enum ProjectType {
   UI5 = "UI5",
   CAP = "CAP",
-  ADP = "ADP",
 }
 /**
  * @param name project name

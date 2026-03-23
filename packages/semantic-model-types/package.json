@@ -1,6 +1,6 @@
 {
   "name": "@ui5-language-assistant/semantic-model-types",
-  "version": "4.0.14",
+  "version": "4.0.11",
   "private": true,
   "description": "UI5 Semantic model type definitions",
   "keywords": [],
@@ -15,13 +15,13 @@
   "scripts": {
     "ci": "npm-run-all clean compile lint coverage",
     "clean": "echo \"nothing to clean\"",
-    "compile": "yarn run clean && tsc -p .",
+    "compile": "pnpm run clean && tsc -p .",
     "compile:watch": "tsc -p . --watch",
     "lint": "eslint . --ext .ts --max-warnings=0 --ignore-path=../../.gitignore",
     "test": "echo nothing to test",
     "coverage": "echo nothing to test"
   },
   "dependencies": {
-    "@ui5-language-assistant/constant": "0.0.4"
+    "@ui5-language-assistant/constant": "workspace:*"
   }
 }

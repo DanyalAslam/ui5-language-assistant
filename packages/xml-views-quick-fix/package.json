@@ -1,6 +1,6 @@
 {
   "name": "@ui5-language-assistant/xml-views-quick-fix",
-  "version": "4.0.30",
+  "version": "4.0.21",
   "private": true,
   "description": "Logic for UI5 XML-Views quick-fixes",
   "keywords": [
@@ -21,21 +21,21 @@
     "node": ">=10.0.0"
   },
   "dependencies": {
-    "@ui5-language-assistant/logic-utils": "4.0.24",
-    "@ui5-language-assistant/context": "4.0.38",
+    "@ui5-language-assistant/logic-utils": "workspace:*",
+    "@ui5-language-assistant/context": "workspace:*",
     "@xml-tools/ast": "5.0.0",
     "@xml-tools/ast-position": "2.0.2",
     "lodash": "4.17.21"
   },
   "devDependencies": {
-    "@ui5-language-assistant/test-utils": "4.0.19",
+    "@ui5-language-assistant/test-utils": "workspace:*",
     "@xml-tools/parser": "1.0.7",
     "vscode-languageserver": "8.0.2"
   },
   "scripts": {
     "ci": "npm-run-all clean compile lint coverage",
-    "clean": "rimraf ./lib ./coverage ./nyc_output",
-    "compile": "yarn run clean && tsc -p .",
+    "clean": "rimraf ./lib ./coverage",
+    "compile": "pnpm run clean && tsc -p .",
     "compile:watch": "tsc -p . --watch",
     "lint": "eslint . --ext .ts --max-warnings=0 --ignore-path=../../.gitignore",
     "test": "jest --ci --forceExit --detectOpenHandles --maxWorkers=1 --coverage=false",

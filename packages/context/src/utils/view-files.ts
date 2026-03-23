@@ -70,15 +70,7 @@ export async function getViewFiles(param: {
   }
 
   const files = {};
-  if (!manifestPath) {
-    // a project without manifest.json or manifest.appdescr_variant file. Only support for current view file
-    const ast = await createDocumentAst(documentPath);
-    files[documentPath] = ast;
-  } else {
-    // find all view files
-    await processViewFiles(join(manifestPath, ".."), files);
-  }
-
+  await processViewFiles(join(manifestPath, ".."), files);
   cache.setViewFiles(manifestPath, files);
   return files;
 }

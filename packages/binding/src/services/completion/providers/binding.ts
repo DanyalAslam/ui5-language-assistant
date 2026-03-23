@@ -17,7 +17,6 @@ import {
 import { BindContext } from "../../../types";
 import { createInitialSnippet } from "./create-initial-snippet";
 import {
-  findPrimitiveTypeInAggregation,
   getCursorContext,
   getLogger,
   isMacrosMetaContextPath,
@@ -139,17 +138,7 @@ export function bindingSuggestions({
         )
       );
     }
-
-    const altTypes = findPrimitiveTypeInAggregation(ui5Aggregation);
-    if (altTypes) {
-      // for `altTypes`, `PROPERTY_BINDING_INFO` properties are added (duplicate allowed)
-      return completionItems;
-    }
-    // Remove duplicates
-    const uniqueCompletionItems = Array.from(
-      new Map(completionItems.map((item) => [item.label, item])).values()
-    );
-    return uniqueCompletionItems;
+    return completionItems;
   } catch (error) {
     getLogger().debug("bindingSuggestions failed:", error);
     return [];

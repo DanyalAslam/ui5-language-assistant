@@ -1,137 +1,57 @@
 import {
+  EventEmitter,
   ExtensionContext,
   TextDocumentContentProvider,
   Uri,
-  window,
 } from "vscode";
 import { getManifestSchemaProvider } from "../../src/manifest-schema-provider";
 import * as logicUtils from "@ui5-language-assistant/logic-utils";
-import * as context from "@ui5-language-assistant/context";
-import * as utils from "../../src/utils";
 import { Response } from "node-fetch";
 import { MANIFEST_SCHEMA } from "../../src/constants";
 import { CancellationToken } from "vscode-languageclient";
 
 const fakeExtensionContext: ExtensionContext = {
-  asAbsolutePath: jest
-    .fn()
-    .mockReturnValue("dummy/path/lib/src/manifest/schema-v1.json"),
+  asAbsolutePath: jest.fn().mockReturnValue("dummy/path/schema.json"),
 } as unknown as ExtensionContext;
 
-describe("Manifest schema provider", () => {
-  let findManifestPathSpy: jest.SpyInstance;
-  let getUI5ManifestSpy: jest.SpyInstance;
-  let getSchemaContentSpy: jest.SpyInstance;
-
-  const mockActiveEditor = {
-    document: {
-      uri: { fsPath: "/path/to/file.js" },
-    },
-  };
-
-  beforeEach(() => {
-    jest.clearAllMocks();
-    // Setup default mocks
-    Object.defineProperty(window, "activeTextEditor", {
-      value: mockActiveEditor,
-      configurable: true,
-    });
-    findManifestPathSpy = jest
-      .spyOn(context, "findManifestPath")
-      .mockResolvedValue("/path/to/manifest.json");
-    getUI5ManifestSpy = jest
-      .spyOn(context, "getUI5Manifest")
-      .mockResolvedValue({
-        _version: "1.0",
-      });
-    getSchemaContentSpy = jest
-      .spyOn(utils, "getSchemaContent")
-      .mockResolvedValue("local schema content");
-  });
-
-  afterEach(() => {
-    jest.restoreAllMocks();
-  });
-
-  it("returns empty provider when no active editor", async () => {
-    Object.defineProperty(window, "activeTextEditor", {
-      value: undefined,
-      configurable: true,
-    });
-
-    const result = await getManifestSchemaProvider(fakeExtensionContext);
-
-    expect(result.schemaContent).toBe("");
-  });
-
-  it("returns empty provider when manifest path not found", async () => {
-    findManifestPathSpy.mockResolvedValue(undefined);
-
-    const result = await getManifestSchemaProvider(fakeExtensionContext);
-
-    expect(result.schemaContent).toBe("");
-  });
-
-  it("returns empty provider when manifest cannot be loaded", async () => {
-    getUI5ManifestSpy.mockResolvedValue(undefined);
-
-    const result = await getManifestSchemaProvider(fakeExtensionContext);
-
-    expect(result.schemaContent).toBe("");
-  });
-
-  it("loads schema from web with version placeholder replaced", async () => {
-    const fetchSpy = jest.spyOn(logicUtils, "tryFetch").mockResolvedValue({
-      text: () => "schema content from web",
-    } as unknown as Response);
-
-    getUI5ManifestSpy.mockResolvedValue({ _version: "1.58.0" });
-
-    const result = await getManifestSchemaProvider(fakeExtensionContext);
-
-    expect(fetchSpy).toHaveBeenCalledWith(utils.getSchemaUri("1.58.0"));
-    expect(result.schemaContent).toBe("schema content from web");
-  });
-
-  it("loads schema from local when web fetch fails", async () => {
+describe("Manifest schems provider", () => {
+  it("load schema from local folder", async () => {
     const fetchSpy = jest
       .spyOn(logicUtils, "tryFetch")
       .mockResolvedValue(undefined);
+    // simulate file system for loading schema json
+    const mock = (await import("mock-fs")).default;
+    try {
+      const schemaDir = "dummy/path";
+      mock({
+        [schemaDir]: {
+          ["schema.json"]: "schema content",
+        },
+      });
 
-    getUI5ManifestSpy.mockResolvedValue({ _version: "1.5.0" });
-
-    const result = await getManifestSchemaProvider(fakeExtensionContext);
-
-    expect(fetchSpy).toHaveBeenCalledWith(utils.getSchemaUri("1.5.0"));
-    expect(getSchemaContentSpy).toHaveBeenCalledWith(
-      fakeExtensionContext,
-      "1.5.0"
-    );
-    expect(result.schemaContent).toBe("local schema content");
+      const result = await getManifestSchemaProvider(
+        fakeExtensionContext as unknown as ExtensionContext
+      );
+      expect(result.schemaContent).toBe("schema content");
+    } finally {
+      mock.restore();
+      fetchSpy.mockRestore();
+    }
   });
 
-  it("loads schema using version from manifestVersionChanged parameter", async () => {
+  it("load schema from web", async () => {
     const fetchSpy = jest.spyOn(logicUtils, "tryFetch").mockResolvedValue({
-      text: () => "schema content from web with version change",
+      text: () => "schema content",
     } as unknown as Response);
 
-    const manifestVersionChanged = {
-      changed: true,
-      oldVersion: "1.0.0",
-      newVersion: "2.0.0",
-    };
-
-    const result = await getManifestSchemaProvider(
-      fakeExtensionContext,
-      manifestVersionChanged
-    );
-
-    expect(fetchSpy).toHaveBeenCalledWith(utils.getSchemaUri("2.0.0"));
-    expect(result.schemaContent).toBe(
-      "schema content from web with version change"
-    );
-    expect(findManifestPathSpy).not.toHaveBeenCalled();
-    expect(getUI5ManifestSpy).not.toHaveBeenCalled();
+    try {
+      const result = await getManifestSchemaProvider(
+        fakeExtensionContext as unknown as ExtensionContext
+      );
+      expect(result.schemaContent).toBe("schema content");
+    } finally {
+      fetchSpy.mockRestore();
+    }
   });
 
   describe("class methods", () => {
@@ -140,26 +60,16 @@ describe("Manifest schema provider", () => {
     const token = undefined as unknown as CancellationToken;
 
     beforeAll(async () => {
-      jest.spyOn(logicUtils, "tryFetch").mockResolvedValue({
+      const fetchSpy = jest.spyOn(logicUtils, "tryFetch").mockResolvedValue({
         text: () => "schema content",
       } as unknown as Response);
-
-      const findManifestPathTestSpy = jest
-        .spyOn(context, "findManifestPath")
-        .mockResolvedValue("/path/to/manifest.json");
-      const getUI5ManifestTestSpy = jest
-        .spyOn(context, "getUI5Manifest")
-        .mockResolvedValue({
-          _version: "1.0",
-        });
 
       try {
         provider = await getManifestSchemaProvider(
           fakeExtensionContext as unknown as ExtensionContext
         );
       } finally {
-        findManifestPathTestSpy.mockRestore();
-        getUI5ManifestTestSpy.mockRestore();
+        fetchSpy.mockRestore();
       }
     });
 
@@ -169,34 +79,7 @@ describe("Manifest schema provider", () => {
       if (method) {
         result = method(() => null);
       }
-      expect(result).toBeDefined();
-      expect(result).toHaveProperty("dispose");
-      expect(typeof result?.dispose).toBe("function");
-    });
-
-    it("fireContentChange triggers event listeners", async () => {
-      const mockListener = jest.fn();
-      const testUri = Uri.parse(`${MANIFEST_SCHEMA}://test`);
-
-      // Subscribe to the event
-      expect(provider.onDidChange).toBeDefined();
-      if (!provider.onDidChange) {
-        throw new Error("onDidChange is not defined");
-      }
-      const disposable = provider.onDidChange(mockListener);
-
-      // Trigger the event using type assertion to access private method
-      const providerWithFireMethod = provider as TextDocumentContentProvider & {
-        fireContentChange: (uri: Uri) => void;
-      };
-      providerWithFireMethod.fireContentChange(testUri);
-
-      // Verify the listener was called with the URI
-      expect(mockListener).toHaveBeenCalledWith(testUri);
-      expect(mockListener).toHaveBeenCalledTimes(1);
-
-      // Clean up
-      disposable.dispose();
+      expect(result instanceof EventEmitter).toBeTrue();
     });
 
     it("provideTextDocumentContent, correct schema", () => {

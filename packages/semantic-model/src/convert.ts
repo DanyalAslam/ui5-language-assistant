@@ -51,7 +51,8 @@ export function convertToSemanticModel(
         const libSemanticModel = convertLibraryToSemanticModel(
           libraryName,
           fileContent,
-          jsonSymbols
+          jsonSymbols,
+          strict
         );
         addLibraryToModel(libSemanticModel, model);
       } else if (strict) {
@@ -75,7 +76,8 @@ function addLibraryToModel(
 function convertLibraryToSemanticModel(
   libName: string,
   lib: apiJson.SchemaForApiJsonFiles,
-  jsonSymbols: Record<string, apiJson.ConcreteSymbol>
+  jsonSymbols: Record<string, apiJson.ConcreteSymbol>,
+  strict: boolean
 ): model.UI5SemanticModel {
   const model: model.UI5SemanticModel = {
     version: lib.version,
@@ -103,7 +105,7 @@ function convertLibraryToSemanticModel(
     if (has(jsonSymbols, fqn)) {
       error(
         `${libName}: Duplicate symbol found: ${symbol.kind} ${fqn}. First occurrence is a ${jsonSymbols[fqn].kind}.`,
-        false
+        strict
       );
       continue;
     }

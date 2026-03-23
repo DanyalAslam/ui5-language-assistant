@@ -1,6 +1,6 @@
 {
   "title": "SAP JSON schema for Web Application Manifest File",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "required": ["_version", "sap.app", "sap.ui"],
   "additionalProperties": false,
@@ -78,21 +78,7 @@
         "1.62.0",
         "1.63.0",
         "1.64.0",
-        "1.65.0",
-        "1.66.0",
-        "1.67.2",
-        "1.68.0",
-        "1.69.0",
-        "1.70.1",
-        "1.71.0",
-        "1.72.0",
-        "2.0.0",
-        "2.1.0",
-        "2.1.1",
-        "2.2.0",
-        "2.3.0",
-        "2.3.1",
-        "2.4.0"
+        "1.65.0"
       ]
     },
     "start_url": {
@@ -106,6 +92,33 @@
       "additionalProperties": false,
       "required": ["id", "type", "title", "applicationVersion"],
       "properties": {
+        "_version": {
+          "description": "Application attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": [
+            "1.1.0",
+            "1.2.0",
+            "1.3.0",
+            "1.4.0",
+            "1.5.0",
+            "1.6.0",
+            "1.7.0",
+            "1.8.0",
+            "1.9.0",
+            "1.10.0",
+            "1.11.0",
+            "1.12.0",
+            "1.13.0",
+            "1.14.0",
+            "1.15.0",
+            "1.16.0",
+            "1.17.0",
+            "1.18.0",
+            "1.19.0",
+            "1.20.0",
+            "1.21.0"
+          ]
+        },
         "sourceTemplate": {
           "description": "Represents the template from which the app was generated",
           "type": "object",
@@ -127,7 +140,7 @@
         },
         "id": {
           "description": "Represents mandatory unique app identifier which must correspond to component 'id/namespace'",
-          "$ref": "#/$defs/id_def"
+          "$ref": "#/definitions/id_def"
         },
         "type": {
           "description": "Represents type of an application and can be application or component or library or card",
@@ -165,7 +178,7 @@
                   "additionalProperties": false,
                   "patternProperties": {
                     "^[a-zA-Z0-9_\\-]*$": {
-                      "$ref": "#/$defs/terminologySetting"
+                      "$ref": "#/definitions/terminologySetting"
                     }
                   }
                 },
@@ -174,7 +187,7 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "$ref": "#/$defs/enhanceWithSetting"
+                    "$ref": "#/definitions/enhanceWithSetting"
                   }
                 }
               }
@@ -208,7 +221,7 @@
                   "additionalProperties": false,
                   "patternProperties": {
                     "^[a-zA-Z0-9_\\-]*$": {
-                      "$ref": "#/$defs/terminologySetting"
+                      "$ref": "#/definitions/terminologySetting"
                     }
                   }
                 },
@@ -217,7 +230,7 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "$ref": "#/$defs/enhanceWithSetting"
+                    "$ref": "#/definitions/enhanceWithSetting"
                   }
                 }
               }
@@ -230,7 +243,7 @@
           "required": ["version"],
           "properties": {
             "version": {
-              "$ref": "#/$defs/version"
+              "$ref": "#/definitions/version"
             }
           }
         },
@@ -247,7 +260,7 @@
         },
         "title": {
           "description": "Represents a title (mandatory); to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Application title"
@@ -255,7 +268,7 @@
         },
         "subTitle": {
           "description": "Represents a subtitle to the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Application subtitle"
@@ -263,7 +276,7 @@
         },
         "shortTitle": {
           "description": "Represents a shorter version of the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Shorter version of the application title"
@@ -271,7 +284,7 @@
         },
         "info": {
           "description": "Represents additional information to the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "YINF",
             "comment": "Additional information to the application title"
@@ -279,7 +292,7 @@
         },
         "description": {
           "description": "Represents a description; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "YDES",
             "comment": "Application description"
@@ -292,7 +305,7 @@
           "required": ["keywords"],
           "properties": {
             "keywords": {
-              "$ref": "#/$defs/tag"
+              "$ref": "#/definitions/tag"
             },
             "technicalAttributes": {
               "type": "array",
@@ -314,7 +327,7 @@
           "additionalProperties": false,
           "patternProperties": {
             "^[a-zA-Z0-9_\\.\\-]*$": {
-              "$ref": "#/$defs/dataSource"
+              "$ref": "#/definitions/dataSource"
             }
           }
         },
@@ -346,7 +359,7 @@
           "description": "Represents a collection of directly used open source libs (not when used via UI5 capsulation)",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/openSource"
+            "$ref": "#/definitions/openSource"
           }
         },
         "provider": {
@@ -383,16 +396,16 @@
             },
             "inbounds": {
               "description": "Represents cross navigation for inbound target",
-              "$ref": "#/$defs/inbound"
+              "$ref": "#/definitions/inbound"
             },
             "outbounds": {
               "description": "Describes intents that can be triggered from the application to navigate",
-              "$ref": "#/$defs/outbound"
+              "$ref": "#/definitions/outbound"
             }
           }
         }
       },
-      "$defs": {
+      "definitions": {
         "parameter": {
           "type": "object",
           "properties": {
@@ -409,6 +422,11 @@
       "type": "object",
       "required": ["technology", "deviceTypes"],
       "properties": {
+        "_version": {
+          "description": "Represents UI attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.1.0", "1.2.0", "1.3.0", "1.4.0", "1.5.0"]
+        },
         "technology": {
           "description": "Represents UI technology. The possible values are UI5 (default), WDA, NWBC, GUI, URL and WCF",
           "type": "string",
@@ -450,7 +468,7 @@
           "description": "Represents device types on which application is running. Supported device types are desktop, tablet and phone",
           "allOf": [
             {
-              "$ref": "#/$defs/deviceType"
+              "$ref": "#/definitions/deviceType"
             },
             {
               "required": ["desktop", "tablet", "phone"]
@@ -458,8 +476,7 @@
           ]
         },
         "supportedThemes": {
-          "description": "[Deprecated] Represents array of supported SAP themes such as sap_hcb, sap_bluecrystal",
-          "deprecated": true,
+          "description": "The property is Deprecated. Represents array of supported SAP themes such as sap_hcb, sap_bluecrystal",
           "type": "array",
           "items": {
             "type": "string"
@@ -479,9 +496,33 @@
           "type": "object",
           "required": ["dependencies", "contentDensities"],
           "properties": {
+            "_version": {
+              "description": " Represents SAPUI5 attributes format version. It is managed by namespace owner",
+              "type": "string",
+              "enum": [
+                "1.1.0",
+                "1.2.0",
+                "1.3.0",
+                "1.4.0",
+                "1.5.0",
+                "1.6.0",
+                "1.7.0",
+                "1.8.0",
+                "1.9.0",
+                "1.10.0",
+                "1.11.0",
+                "1.12.0",
+                "1.13.0",
+                "1.14.0",
+                "1.15.0",
+                "1.16.0",
+                "1.17.0",
+                "1.18.0"
+              ]
+            },
             "resources": {
-              "description": "Represents paths to CSS resources that your app needs (app internal).",
-              "$ref": "#/$defs/resource"
+              "description": "Represents paths to JavaScript/CSS resources that your app needs (app internal), formerly called '.includes'",
+              "$ref": "#/definitions/resource"
             },
             "componentUsages": {
               "description": "Represents the explicit usage declaration for UI5 reuse components",
@@ -489,7 +530,7 @@
               "additionalProperties": false,
               "patternProperties": {
                 "^[a-zA-Z0-9_\\.]*$": {
-                  "$ref": "#/$defs/componentUsages"
+                  "$ref": "#/definitions/componentUsages"
                 }
               }
             },
@@ -500,8 +541,8 @@
               "required": ["minUI5Version"],
               "properties": {
                 "minUI5Version": {
-                  "description": "Represents the minimum version of SAPUI5 that your component requires. It is either a specific version or an array of versions where each major version can only be included once. If array contains more than one version and if version 1 is included it must be at least 1.120.x.",
-                  "$ref": "#/$defs/minUI5Version"
+                  "description": "Represents the minimum version of SAP UI5 that your component requires. It is either a specific version or an array of versions where each major version can only be included once. If array contains more than one version and if version 1 is included it must be at least 1.120.x.",
+                  "$ref": "#/definitions/minUI5Version"
                 },
                 "libs": {
                   "description": "Represents the id (namespace) of the libraries that should be loaded by UI5 Core to be used in your component",
@@ -509,7 +550,7 @@
                   "additionalProperties": false,
                   "patternProperties": {
                     "^([a-z][a-z0-9]{0,39})(\\.[a-z][a-z0-9]{0,39})*$": {
-                      "$ref": "#/$defs/lib"
+                      "$ref": "#/definitions/lib"
                     }
                   }
                 },
@@ -519,7 +560,7 @@
                   "additionalProperties": false,
                   "patternProperties": {
                     "^([a-zA-Z_$][a-zA-Z0-9_$]{0,39}\\.)*([a-zA-Z_$][a-zA-Z0-9_$]{0,39})$": {
-                      "$ref": "#/$defs/component"
+                      "$ref": "#/definitions/component"
                     }
                   }
                 }
@@ -531,7 +572,7 @@
               "additionalProperties": false,
               "patternProperties": {
                 "^[a-zA-Z0-9_\\.\\-\\|@]*$": {
-                  "$ref": "#/$defs/model"
+                  "$ref": "#/definitions/model"
                 }
               }
             },
@@ -541,7 +582,7 @@
               "additionalProperties": false,
               "patternProperties": {
                 "^[a-zA-Z0-9_\\.\\-]*$": {
-                  "$ref": "#/$defs/resourceRoot"
+                  "$ref": "#/definitions/resourceRoot"
                 }
               }
             },
@@ -556,7 +597,7 @@
               "additionalProperties": false,
               "patternProperties": {
                 "[\\s\\S]*": {
-                  "$ref": "#/$defs/config"
+                  "$ref": "#/definitions/config"
                 }
               }
             },
@@ -567,11 +608,11 @@
               "properties": {
                 "component": {
                   "description": "Represents the component name",
-                  "$ref": "#/$defs/id_def"
+                  "$ref": "#/definitions/id_def"
                 },
                 "minVersion": {
                   "description": "Represents minimal version of the component",
-                  "$ref": "#/$defs/version"
+                  "$ref": "#/definitions/version"
                 },
                 "extensions": {
                   "description": "Represents extensions of the component",
@@ -637,7 +678,7 @@
               "additionalProperties": false,
               "patternProperties": {
                 "[\\s\\S]*": {
-                  "$ref": "#/$defs/service"
+                  "$ref": "#/definitions/service"
                 }
               }
             },
@@ -680,7 +721,7 @@
                           "additionalProperties": false,
                           "patternProperties": {
                             "^[a-zA-Z0-9_\\-]*$": {
-                              "$ref": "#/$defs/terminologySetting"
+                              "$ref": "#/definitions/terminologySetting"
                             }
                           }
                         },
@@ -689,7 +730,7 @@
                           "type": "array",
                           "items": {
                             "type": "object",
-                            "$ref": "#/$defs/enhanceWithSetting"
+                            "$ref": "#/definitions/enhanceWithSetting"
                           }
                         }
                       }
@@ -717,7 +758,7 @@
                           "additionalProperties": false,
                           "patternProperties": {
                             "^[a-zA-Z0-9_\\-]*$": {
-                              "$ref": "#/$defs/terminologySetting"
+                              "$ref": "#/definitions/terminologySetting"
                             }
                           }
                         },
@@ -726,7 +767,7 @@
                           "type": "array",
                           "items": {
                             "type": "object",
-                            "$ref": "#/$defs/enhanceWithSetting"
+                            "$ref": "#/definitions/enhanceWithSetting"
                           }
                         }
                       }
@@ -735,7 +776,7 @@
                 },
                 "css": {
                   "description": "Flag whether the library contains a CSS file or not.",
-                  "$ref": "#/$defs/booleanOrString"
+                  "$ref": "#/definitions/booleanOrString"
                 },
                 "content": {
                   "description": "Represents the content of a library. Content are controls, elements, types and interfaces.",
@@ -749,13 +790,9 @@
               "additionalProperties": false,
               "patternProperties": {
                 "^[A-Za-z_][A-Za-z0-9_\\-\\|@]+$": {
-                  "$ref": "#/$defs/command"
+                  "$ref": "#/definitions/command"
                 }
               }
-            },
-            "flexBundle": {
-              "description": "Represents an indicator whether a flexibility bundle was created and is within the application sources. This property is set by the building tool.",
-              "type": "boolean"
             },
             "flexExtensionPointEnabled": {
               "description": "Represents an indicator whether app variant is flex extension point enabled",
@@ -781,10 +818,10 @@
                   "enum": [true]
                 },
                 "routing": {
-                  "$ref": "#/$defs/routing_flexEnabled"
+                  "$ref": "#/definitions/routing_flexEnabled"
                 },
                 "rootView": {
-                  "$ref": "#/$defs/rootView_def_flexEnabled"
+                  "$ref": "#/definitions/rootView_def_flexEnabled"
                 }
               }
             },
@@ -797,17 +834,17 @@
                   "enum": [false]
                 },
                 "routing": {
-                  "$ref": "#/$defs/routing"
+                  "$ref": "#/definitions/routing"
                 },
                 "rootView": {
-                  "$ref": "#/$defs/rootView_def"
+                  "$ref": "#/definitions/rootView_def"
                 }
               }
             }
           ]
         }
       ],
-      "$defs": {
+      "definitions": {
         "deviceType": {
           "type": "object",
           "description": "Represents device types on which the app is running",
@@ -835,6 +872,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.1.0", "1.2.0"]
+        },
         "uri": {
           "description": "Represents the uri of the app in the ABAP system",
           "type": "string"
@@ -851,6 +893,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.1.0", "1.2.0", "1.3.0"]
+        },
         "uri": {
           "description": "Represents the uri of the app in the HANA Cloud Platform",
           "type": "string"
@@ -884,6 +931,11 @@
       "type": "object",
       "additionalProperties": true,
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.1.0", "1.2.0"]
+        },
         "oAuthScopes": {
           "description": "Represents the authorization scope of the application",
           "type": "array",
@@ -920,6 +972,11 @@
       "type": "object",
       "additionalProperties": true,
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.0.0"]
+        },
         "compatible": {
           "description": "Represents the compatibility of this app with the Mobile Cards platform.",
           "type": "boolean"
@@ -933,6 +990,11 @@
       "required": ["registrationIds", "archeType"],
       "additionalProperties": false,
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.1.0", "1.2.0", "1.3.0"]
+        },
         "registrationIds": {
           "description": "Represents array of registration ids, i.e. for Fiori apps fiori id(s)",
           "type": "array",
@@ -969,9 +1031,13 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "_version": {
+          "type": "string",
+          "enum": ["1.1.0", "1.2.0", "1.3.0", "1.4.0", "1.5.0", "1.6.0"]
+        },
         "settings": {
           "description": "Represents global settings for the application controller",
-          "$ref": "#/$defs/setting_def"
+          "$ref": "#/definitions/setting_def"
         },
         "pages": {
           "description": "Represents one ore more pages of an application. UI5 routing is created from the definitions in this section",
@@ -979,7 +1045,7 @@
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/pages_array"
+                "$ref": "#/definitions/pages_array"
               }
             },
             {
@@ -987,7 +1053,7 @@
               "additionalProperties": false,
               "patternProperties": {
                 "^[a-zA-Z0-9_\\.\\-]+[\\|]?[a-zA-Z0-9_\\.\\-]+$": {
-                  "$ref": "#/$defs/pages_map"
+                  "$ref": "#/definitions/pages_map"
                 }
               }
             }
@@ -1004,36 +1070,23 @@
       "title": "JSON schema for SAP.FLP Namespace",
       "description": "Represents FLP specific attributes",
       "type": "object",
+      "required": ["type"],
       "additionalProperties": false,
       "properties": {
-        "vizOptions": {
-          "description": "Options a visualization (launchpad tile) is offering with regards to rendering, for example",
-          "type": "object",
-          "properties": {
-            "displayFormats": {
-              "description": "Defines what display formats a visualization type can render itself in",
-              "type": "object",
-              "properties": {
-                "supported": {
-                  "description": "Lists all display formats the visualization type is capable of rendering itself in. The order of items may be used as preference definition (most important first).",
-                  "type": "array",
-                  "default": ["standard"],
-                  "items": {
-                    "$ref": "#/$defs/displayFormatEnum"
-                  }
-                },
-                "default": {
-                  "$ref": "#/$defs/displayFormatEnum"
-                }
-              }
-            }
-          }
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.1.0", "1.2.0", "1.3.0"]
+        },
+        "tileSize": {
+          "description": "Represents size of the tile",
+          "type": "string",
+          "enum": ["1x1", "1x2"]
         },
         "type": {
           "description": "Represents the type of FLP entry. It must be 'application' or 'tile' or 'plugin'",
           "type": "string",
-          "enum": ["application", "tile", "plugin"],
-          "default": "application"
+          "enum": ["application", "tile", "plugin"]
         },
         "config": {
           "description": "Represents configuration parameters of the FLP entry",
@@ -1045,6 +1098,21 @@
               "type": "object"
             }
           }
+        },
+        "origin": {
+          "description": "Represents the original tile and target mapping which resulted in this app",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tileId": {
+              "description": "Represents the original tile which resulted in this app",
+              "type": "string"
+            },
+            "targetMappingId": {
+              "description": "Represents the original target mapping which resulted in this app",
+              "type": "string"
+            }
+          }
         }
       }
     },
@@ -1053,13 +1121,35 @@
       "description": "Represents OVP specific attributes",
       "type": "object",
       "required": ["cards"],
-      "dependentRequired": {
-        "globalFilterEntitySet": ["globalFilterModel"]
+      "dependencies": {
+        "globalFilterEntityType": ["globalFilterModel"]
       },
       "additionalProperties": false,
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": [
+            "1.1.0",
+            "1.2.0",
+            "1.3.0",
+            "1.4.0",
+            "1.5.0",
+            "1.6.0",
+            "1.7.0",
+            "1.8.0",
+            "1.9.0",
+            "1.10.0",
+            "1.11.0"
+          ]
+        },
         "globalFilterModel": {
           "description": "Represents the name of global filter OData model, which  contains entities definition that are relevant for global filters",
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_\\.\\-\\|@]*$"
+        },
+        "globalFilterEntityType": {
+          "description": "Represents the entity to use as global filter in the smart filter bar control",
           "type": "string",
           "pattern": "^[a-zA-Z0-9_\\.\\-\\|@]*$"
         },
@@ -1097,17 +1187,8 @@
         "containerLayout": {
           "description": "Represents the layout of the card container",
           "type": "string",
-          "default": "resizable",
-          "oneOf": [
-            {
-              "const": "resizable"
-            },
-            {
-              "const": "fixed",
-              "deprecated": true,
-              "description": "[Deprecated] Value fixed is deprecated"
-            }
-          ]
+          "default": "fixed",
+          "enum": ["fixed", "resizable"]
         },
         "showDateInRelativeFormat": {
           "description": "Represents a switch to Enable or disable Relative or Normal date formating in ovp application",
@@ -1131,7 +1212,7 @@
         },
         "refreshStrategyOnAppRestore": {
           "description": "Represents the refresh strategies configured for OVP while coming back to the source app",
-          "$ref": "#/$defs/refreshStrategies_prop_def"
+          "$ref": "#/definitions/refreshStrategies_prop_def"
         },
         "considerAnalyticalParameters": {
           "description": "Flag to enable/disable analytical parameter support for Smart filter bar",
@@ -1186,7 +1267,7 @@
                   "type": "object",
                   "patternProperties": {
                     "^[a-zA-Z0-9_\\.\\-]*$": {
-                      "$ref": "#/$defs/filterFieldName"
+                      "$ref": "#/definitions/filterFieldName"
                     }
                   }
                 }
@@ -1211,7 +1292,7 @@
           "additionalProperties": false,
           "patternProperties": {
             "^[a-zA-Z0-9_\\.\\-]+$": {
-              "$ref": "#/$defs/card"
+              "$ref": "#/definitions/card"
             }
           }
         },
@@ -1220,7 +1301,7 @@
           "additionalProperties": false,
           "patternProperties": {
             "^cols_[0-9]+$": {
-              "$ref": "#/$defs/resizableLayoutVariant"
+              "$ref": "#/definitions/resizableLayoutVariant"
             }
           }
         }
@@ -1231,6 +1312,10 @@
       "description": "Represents Insights attributes",
       "required": ["parentAppId", "cardType"],
       "properties": {
+        "_version": {
+          "type": "string",
+          "enum": ["1.0.0", "1.1.0", "1.2.0", "1.3.0", "1.4.0", "1.5.0"]
+        },
         "parentAppId": {
           "type": "string",
           "description": "Represents mandatory unique app identifier of the app containing self manifest."
@@ -1266,8 +1351,7 @@
           "default": true
         },
         "rank": {
-          "description": "[Deprecated] Represents the display order of Insights card",
-          "deprecated": true,
+          "description": "Deprecated: Represents the display order of Insights card",
           "type": "integer"
         },
         "versions": {
@@ -1340,10 +1424,96 @@
       "title": "JSON schema for SAP Insights Namespace",
       "type": "object"
     },
+    "sap.wda": {
+      "title": "JSON schema for SAP.WDA Namespace",
+      "description": "Represents WDA specific attributes",
+      "type": "object",
+      "required": ["applicationId"],
+      "additionalProperties": false,
+      "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.1.0", "1.2.0"]
+        },
+        "applicationId": {
+          "description": "Represents ID of an application",
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9\\/_]{1,30}$"
+        },
+        "configId": {
+          "description": "Represents ID of an application configuration",
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9\\/\\_]{1,32}$"
+        },
+        "flavorId": {
+          "description": "Represents SAP Screen Personas Flavor ID",
+          "type": "string",
+          "pattern": "^[A-F0-9]{1,32}$"
+        },
+        "compatibilityMode": {
+          "description": "Indicates that WebDynpro Application requires Compatibility Mode, while uses legacy shell services. Possible values are true or false (default)",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "sap.apf": {
+      "title": "JSON schema for SAP.APF Namespace",
+      "description": "Represents APF specific attributes",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.1.0", "1.2.0"]
+        },
+        "activateFilterReduction": {
+          "description": "Represents a switch to activate filter reduction so that filters in OData requests can be represented as ABAP select options",
+          "type": "boolean",
+          "default": false
+        },
+        "activateLrep": {
+          "description": "Represents a switch to activate LREP as the persistence for configurations and texts",
+          "type": "boolean",
+          "default": false
+        },
+        "useHeadRequestForXsrfToken": {
+          "description": "Represents a switch to use HEAD-Requests instead of GET-Requests when fetching the XSRF-Security-Token",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
     "sap.cloud.portal": {
       "title": "JSON schema for SAP.CLOUD.PORTAL Namespace",
       "description": "Represents Cloud Portal specific attributes",
       "type": "object"
+    },
+    "sap.gui": {
+      "title": "JSON schema for SAP.GUI Namespace",
+      "description": "Represents GUI specific attributes",
+      "type": "object",
+      "required": ["transaction"],
+      "additionalProperties": false,
+      "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.1.0", "1.2.0"]
+        },
+        "transaction": {
+          "description": "Represents transaction of an application",
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9\\/_]{1,20}$"
+        },
+        "flavorId": {
+          "description": "Represents SAP Screen Personas Flavor ID",
+          "type": "string",
+          "pattern": "^[A-F0-9]{1,32}$"
+        }
+      }
     },
     "sap.integration": {
       "title": "JSON schema for SAP.INTEGRATION Namespace",
@@ -1351,6 +1521,11 @@
       "type": "object",
       "required": ["urlTemplateId", "parameters"],
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.0.0"]
+        },
         "urlTemplateId": {
           "description": "Reference to the desired URL Template",
           "type": "string",
@@ -1380,6 +1555,25 @@
         }
       }
     },
+    "sap.wcf": {
+      "title": "JSON schema for SAP.WCF Namespace",
+      "description": "Represents WCF Application specific attributes",
+      "type": "object",
+      "required": ["wcf-target-id"],
+      "additionalProperties": false,
+      "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.1.0"]
+        },
+        "wcf-target-id": {
+          "description": "Represents the target technical id for a WCF Application",
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9\\/_]{1,10}$"
+        }
+      }
+    },
     "sap.ui.smartbusiness.app": {
       "title": "JSON schema for SAP.UI.SMARTBUSINESS.APP Namespace",
       "description": "Represents specific attributes for Smart Business  ",
@@ -1391,13 +1585,18 @@
       "type": "object",
       "required": ["definingRequests"],
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.1.0"]
+        },
         "definingRequests": {
           "description": "Represents mobile specific attributes",
           "type": "object",
           "additionalProperties": false,
           "patternProperties": {
             "^[a-zA-Z0-9_\\.\\-]*": {
-              "$ref": "#/$defs/definingRequest"
+              "$ref": "#/definitions/definingRequest"
             }
           }
         }
@@ -1409,6 +1608,11 @@
       "type": "object",
       "additionalProperties": true,
       "properties": {
+        "_version": {
+          "description": "Represents SAP.COPILOT attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.0.0", "1.1.0"]
+        },
         "contextAnalysis": {
           "description": "Settings for the context analysis features of SAP CoPilot",
           "type": "object",
@@ -1427,8 +1631,48 @@
               }
             }
           }
+        },
+        "digitalAssistant": {
+          "description": "Settings for the Digital Assistant features of SAP CoPilot",
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "intentDefinition": {
+              "description": "A list of Intent",
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                "^[a-zA-Z0-9_\\.\\-]*$": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "uri": {
+                      "description": "Represents the uri of the intent",
+                      "type": "string"
+                    },
+                    "dataSources": {
+                      "description": "A list of the sap.app.dataSources used by the intent",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "i18n": {
+                      "description": "Represents the uri of the translation file",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
+    },
+    "sap.map": {
+      "title": "JSON schema for SAP.MAP Namespace",
+      "description": "Represents specific attributes for SAP.MAP  ",
+      "type": "object"
     },
     "sap.url": {
       "title": "JSON schema for SAP.URL Namespace",
@@ -1437,6 +1681,11 @@
       "additionalProperties": false,
       "required": ["uri"],
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.0.0"]
+        },
         "uri": {
           "description": "Represents URI of an application",
           "type": "string"
@@ -1450,6 +1699,11 @@
       "additionalProperties": false,
       "required": ["appName"],
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.0.0"]
+        },
         "uri": {
           "description": "Represents the uri inside the SFSF app",
           "type": "string"
@@ -1470,6 +1724,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.0.0", "1.1.0", "1.2.0"]
+        },
         "service": {
           "description": "Unique Business Service Identifier",
           "type": "string",
@@ -1489,13 +1748,68 @@
       "additionalProperties": false,
       "required": ["type", "header"],
       "properties": {
+        "_version": {
+          "description": "Represents SAP.CARD attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": [
+            "1.1.0",
+            "1.2.0",
+            "1.3.0",
+            "1.4.0",
+            "1.5.0",
+            "1.6.0",
+            "1.7.0",
+            "1.8.0",
+            "1.9.0",
+            "1.10.0",
+            "1.11.0",
+            "1.13.0",
+            "1.14.0",
+            "1.15.0",
+            "1.16.0",
+            "1.17.0",
+            "1.18.0",
+            "1.19.0",
+            "1.20.0",
+            "1.21.0",
+            "1.22.0",
+            "1.23.0",
+            "1.24.0",
+            "1.25.0",
+            "1.26.0",
+            "1.27.0",
+            "1.28.0",
+            "1.29.0",
+            "1.30.0",
+            "1.31.0",
+            "1.32.0",
+            "1.33.0",
+            "1.34.0",
+            "1.35.0",
+            "1.36.0",
+            "1.37.0",
+            "1.38.0",
+            "1.39.0",
+            "1.40.0",
+            "1.41.0",
+            "1.42.0",
+            "1.43.0",
+            "1.44.0",
+            "1.45.0",
+            "1.46.0"
+          ]
+        },
+        "designtime": {
+          "description": "[Deprecated] The path to the design time folder with assets files",
+          "type": "string"
+        },
         "configuration": {
           "description": "General configuration of the card. Allows to define parameters, destinations, filters and more",
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "editor": {
-              "description": "The path to the design time configuration file. Used for Configuration Editor",
+              "description": "The path to the design time configuration file. Used for Configuration Editor.",
               "type": "string"
             },
             "enableMarkdown": {
@@ -1503,17 +1817,17 @@
               "type": "boolean"
             },
             "helpId": {
-              "description": "[Experimental] The help-id which will be rendered as data-help-id on the base element of the card",
+              "description": "[Experimental] The help-id which will be rendered as data-help-id on the base element of the card.",
               "type": "string"
             },
             "modelSizeLimit": {
-              "description": "[Experimental] Represents the maximum number of entries that are used for list bindings",
+              "description": "[Experimental] Represents the maximum number of entries that are used for list bindings.",
               "oneOf": [
                 {
                   "type": "number"
                 },
                 {
-                  "$ref": "#/$defs/simpleBinding"
+                  "$ref": "#/definitions/simpleBinding"
                 }
               ],
               "default": 1000
@@ -1522,7 +1836,7 @@
               "description": "Map of parameters",
               "type": "object",
               "additionalProperties": {
-                "$ref": "#/$defs/Configuration.Parameter"
+                "$ref": "#/definitions/Configuration.Parameter"
               }
             },
             "filters": {
@@ -1530,41 +1844,36 @@
               "additionalProperties": {
                 "oneOf": [
                   {
-                    "$ref": "#/$defs/Configuration.FilterType.Select"
+                    "$ref": "#/definitions/Configuration.FilterType.Select"
                   },
                   {
-                    "$ref": "#/$defs/Configuration.FilterType.DateRange"
+                    "$ref": "#/definitions/Configuration.FilterType.DateRange"
                   },
                   {
-                    "$ref": "#/$defs/Configuration.FilterType.Search"
+                    "$ref": "#/definitions/Configuration.FilterType.Search"
                   },
                   {
-                    "$ref": "#/$defs/Configuration.FilterType.ComboBox"
+                    "$ref": "#/definitions/Configuration.FilterType.ComboBox"
                   }
                 ]
               }
             },
             "destinations": {
-              "description": "Specifies the destinations configured for use by the card",
+              "description": "Describes what destinations are used by the card",
               "type": "object",
               "additionalProperties": {
-                "$ref": "#/$defs/Configuration.Destinations"
+                "$ref": "#/definitions/Configuration.Destinations"
               }
-            },
-            "useMainDestinations": {
-              "description": "Indicates if child cards should reference the main card's destinations. Must be set to true in child cards to use the main card's destinations",
-              "type": "boolean",
-              "default": false
             },
             "csrfTokens": {
               "description": "Describes the CSRF tokens used by the card",
               "type": "object",
               "additionalProperties": {
-                "$ref": "#/$defs/Configuration.CSRFToken"
+                "$ref": "#/definitions/Configuration.CSRFToken"
               }
             },
             "actionHandlers": {
-              "description": "Contains configuration settings for the default action handlers",
+              "description": "Holds configuration for the default action handlers",
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -1578,29 +1887,12 @@
               "description": "Describes the messages for the card",
               "type": "object",
               "additionalProperties": {
-                "$ref": "#/$defs/Configuration.NoData"
+                "$ref": "#/definitions/Configuration.NoData"
               }
             },
             "componentData": {
               "description": "[Experimental] Object which will be passed to the component as 'componentData'",
               "type": "object"
-            },
-            "loadingPlaceholders": {
-              "description": "[Experimental] Object that will represent the loading placeholder of the card",
-              "type": "object",
-              "properties": {
-                "delay": {
-                  "description": "The delay of the loading placeholder",
-                  "type": "number"
-                }
-              }
-            },
-            "childCards": {
-              "description": "[Experimental] Map of child cards",
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/$defs/Configuration.ChildCard"
-              }
             }
           }
         },
@@ -1621,7 +1913,7 @@
           ]
         },
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "headerPosition": {
           "description": "Represents card header position - under or over the content",
@@ -1632,13 +1924,13 @@
               "default": "Top"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "header": {
           "description": "Represents card header attributes",
-          "$ref": "#/$defs/HeaderType"
+          "$ref": "#/definitions/HeaderType"
         },
         "content": {
           "description": "Represents card content attributes. Content type should be the same as card type e.g. if card type List is used the content type should also be List"
@@ -1658,11 +1950,11 @@
                 {
                   "type": "array",
                   "items": {
-                    "$ref": "#/$defs/actionsStripItem"
+                    "$ref": "#/definitions/actionsStripItem"
                   }
                 },
                 {
-                  "$ref": "#/$defs/actionsStrip"
+                  "$ref": "#/definitions/actionsStrip"
                 }
               ]
             },
@@ -1678,7 +1970,7 @@
                       "type": "number"
                     },
                     {
-                      "$ref": "#/$defs/simpleBinding"
+                      "$ref": "#/definitions/simpleBinding"
                     }
                   ]
                 },
@@ -1689,19 +1981,19 @@
                       "type": "number"
                     },
                     {
-                      "$ref": "#/$defs/simpleBinding"
+                      "$ref": "#/definitions/simpleBinding"
                     }
                   ]
+                },
+                "visible": {
+                  "description": "Represents the visibility of the paginator",
+                  "$ref": "#/definitions/visibility"
                 }
               }
             },
             "visible": {
               "description": "[Experimental] Visibility of the footer",
-              "$ref": "#/$defs/visibility"
-            },
-            "closeButton": {
-              "description": "[Experimental] Defines the Close button when the card is opened by the ShowCard action",
-              "$ref": "#/$defs/closeButton"
+              "$ref": "#/definitions/visibility"
             }
           }
         },
@@ -1726,7 +2018,7 @@
           "then": {
             "properties": {
               "content": {
-                "$ref": "#/$defs/ContentType.List"
+                "$ref": "#/definitions/ContentType.List"
               }
             }
           }
@@ -1742,7 +2034,7 @@
           "then": {
             "properties": {
               "content": {
-                "$ref": "#/$defs/ContentType.Analytical"
+                "$ref": "#/definitions/ContentType.Analytical"
               }
             }
           }
@@ -1758,7 +2050,7 @@
           "then": {
             "properties": {
               "content": {
-                "$ref": "#/$defs/ContentType.AnalyticsCloud"
+                "$ref": "#/definitions/ContentType.AnalyticsCloud"
               }
             }
           }
@@ -1774,7 +2066,7 @@
           "then": {
             "properties": {
               "content": {
-                "$ref": "#/$defs/ContentType.Timeline"
+                "$ref": "#/definitions/ContentType.Timeline"
               }
             }
           }
@@ -1790,7 +2082,7 @@
           "then": {
             "properties": {
               "content": {
-                "$ref": "#/$defs/ContentType.Table"
+                "$ref": "#/definitions/ContentType.Table"
               }
             }
           }
@@ -1806,7 +2098,7 @@
           "then": {
             "properties": {
               "content": {
-                "$ref": "#/$defs/ContentType.Object"
+                "$ref": "#/definitions/ContentType.Object"
               }
             }
           }
@@ -1822,7 +2114,7 @@
           "then": {
             "properties": {
               "content": {
-                "$ref": "#/$defs/ContentType.Component"
+                "$ref": "#/definitions/ContentType.Component"
               }
             }
           }
@@ -1838,7 +2130,7 @@
           "then": {
             "properties": {
               "content": {
-                "$ref": "#/$defs/ContentType.Calendar"
+                "$ref": "#/definitions/ContentType.Calendar"
               }
             }
           }
@@ -1854,7 +2146,7 @@
           "then": {
             "properties": {
               "content": {
-                "$ref": "#/$defs/ContentType.AdaptiveCard"
+                "$ref": "#/definitions/ContentType.AdaptiveCard"
               }
             }
           }
@@ -1870,46 +2162,12 @@
           "then": {
             "properties": {
               "content": {
-                "$ref": "#/$defs/ContentType.WebPage"
+                "$ref": "#/definitions/ContentType.WebPage"
               }
             }
           }
         }
-      ],
-      "$defs": {
-        "ContentType.Analytical.DataLabel": {
-          "description": "Represents value attributes in the plot area",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "visible": {
-              "description": "Visibility of the data labels",
-              "$ref": "#/$defs/visibility"
-            },
-            "showTotal": {
-              "description": "Visibility of data label for total value in some charts",
-              "$ref": "#/$defs/visibility"
-            }
-          }
-        },
-        "ContentType.Analytical.AxisText": {
-          "description": "Represents descriptive text of the axis",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "visible": {
-              "description": "Represents the visibility state of the descriptive axis text",
-              "$ref": "#/$defs/visibility"
-            }
-          }
-        },
-        "target": {
-          "description": "Specifies where to open an URL",
-          "type": "string",
-          "enum": ["_blank", "_self"],
-          "default": "_blank"
-        }
-      }
+      ]
     },
     "sap.package": {
       "title": "JSON schema for SAP.PACKAGE Namespace",
@@ -1925,9 +2183,14 @@
         "support"
       ],
       "properties": {
+        "_version": {
+          "description": "Represents SAP.PACKAGE attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.0.0", "1.1.0", "1.2.0"]
+        },
         "id": {
           "description": "Represents mandatory unique package identifier",
-          "$ref": "#/$defs/iddef"
+          "$ref": "#/definitions/iddef"
         },
         "i18n": {
           "default": "i18n/i18n.properties",
@@ -1946,7 +2209,7 @@
           "properties": {
             "version": {
               "description": "Represents mandatory semantic version of the package",
-              "$ref": "#/$defs/semanticversion"
+              "$ref": "#/definitions/semanticversion"
             },
             "upgradeNotification": {
               "description": "Represents optional upgrade notification once the package is available. none - no notification, package will be installed automatically for any version. major - notification before a new major version is installed. major.minor - notification before a major and minor version is installed. all - notification before any new version is installed, including patches",
@@ -1963,7 +2226,7 @@
         },
         "title": {
           "description": "Represents a title (mandatory); to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Package title"
@@ -1971,7 +2234,7 @@
         },
         "subTitle": {
           "description": "Represents a subtitle to the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Package subtitle"
@@ -1979,7 +2242,7 @@
         },
         "shortTitle": {
           "description": "Represents a shorter version of the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Shorter version of the package title"
@@ -1987,7 +2250,7 @@
         },
         "info": {
           "description": "Represents additional information to the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "YINF",
             "comment": "Additional information to the package title"
@@ -1995,7 +2258,7 @@
         },
         "description": {
           "description": "Represents a description; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "YDES",
             "comment": "Package description"
@@ -2012,7 +2275,7 @@
           "required": ["keywords"],
           "properties": {
             "keywords": {
-              "$ref": "#/$defs/tag"
+              "$ref": "#/definitions/tag"
             },
             "technicalAttributes": {
               "type": "array",
@@ -2025,25 +2288,25 @@
         },
         "vendor": {
           "description": "Represents the support information",
-          "$ref": "#/$defs/vendor"
+          "$ref": "#/definitions/vendor"
         },
         "homepage": {
           "description": "Represents the homepage information",
-          "$ref": "#/$defs/infolink"
+          "$ref": "#/definitions/infolink"
         },
         "support": {
           "description": "Represents the support information",
-          "$ref": "#/$defs/infolink"
+          "$ref": "#/definitions/infolink"
         },
         "documentation": {
           "description": "Represents the documentation information",
-          "$ref": "#/$defs/infolink"
+          "$ref": "#/definitions/infolink"
         },
         "contents": {
           "type": "array",
           "items": {
             "description": "Represents the artifacts contained in the package",
-            "$ref": "#/$defs/contentitem"
+            "$ref": "#/definitions/contentitem"
           }
         },
         "consumption": {
@@ -2083,9 +2346,14 @@
       "additionalProperties": true,
       "required": ["id", "type", "title", "description", "artifactVersion"],
       "properties": {
+        "_version": {
+          "description": "Represents SAP.ARTIFACT attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.0.0", "1.1.0", "1.2.0"]
+        },
         "id": {
           "description": "Represents mandatory unique artifact identifier",
-          "$ref": "#/$defs/iddef"
+          "$ref": "#/definitions/iddef"
         },
         "i18n": {
           "default": "i18n/i18n.properties",
@@ -2103,7 +2371,7 @@
           "required": ["version"],
           "properties": {
             "version": {
-              "$ref": "#/$defs/semanticversion"
+              "$ref": "#/definitions/semanticversion"
             }
           }
         },
@@ -2114,7 +2382,7 @@
         },
         "title": {
           "description": "Represents a title (mandatory); to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Artifact title"
@@ -2122,7 +2390,7 @@
         },
         "subTitle": {
           "description": "Represents a subtitle to the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Artifact subtitle"
@@ -2130,7 +2398,7 @@
         },
         "shortTitle": {
           "description": "Represents a shorter version of the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Shorter version of the artifact title"
@@ -2138,7 +2406,7 @@
         },
         "info": {
           "description": "Represents additional information to the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "YINF",
             "comment": "Additional information to the artifact title"
@@ -2146,7 +2414,7 @@
         },
         "description": {
           "description": "Represents a description; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "YDES",
             "comment": "Artifact description"
@@ -2163,7 +2431,7 @@
           "required": ["keywords"],
           "properties": {
             "keywords": {
-              "$ref": "#/$defs/tag"
+              "$ref": "#/definitions/tag"
             },
             "technicalAttributes": {
               "type": "array",
@@ -2180,9 +2448,14 @@
       "title": "JSON schema for sap.bpa.task Namespace",
       "description": "Represents SBPA Custom Task UI Attributes",
       "type": "object",
-      "required": ["outcomes", "category"],
+      "required": ["outcomes", "category", "_version"],
       "additionalProperties": false,
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version. It is managed by namespace owner",
+          "type": "string",
+          "enum": ["1.0.0", "1.1.0"]
+        },
         "inputs": {
           "description": "Represents the inputs of the task ui",
           "$ref": "http://json-schema.org/draft-07/schema"
@@ -2247,19 +2520,24 @@
       "description": "Represents generated cards saved to the application repository",
       "type": "object",
       "properties": {
+        "_version": {
+          "description": "Represents attributes format version.",
+          "type": "string",
+          "enum": ["1.0.0"]
+        },
         "embeds": {
           "type": "object",
           "description": "Represents an object with reference to the generated cards",
           "properties": {
             "ObjectPage": {
-              "$ref": "#/$defs/embedsSettings"
+              "$ref": "#/definitions/embedsSettings"
             }
           }
         }
       }
     }
   },
-  "$defs": {
+  "definitions": {
     "manifestSettings": {
       "description": "Represents the manifest settings",
       "type": "object",
@@ -2267,10 +2545,6 @@
         "localUri": {
           "type": "string",
           "description": "Represents the local uri of the generated card"
-        },
-        "hideActions": {
-          "type": "boolean",
-          "description": "Represents a switch to hide actions from the shared card"
         }
       }
     },
@@ -2290,7 +2564,7 @@
             "^[a-zA-Z0-9_]+$": {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/manifestSettings"
+                "$ref": "#/definitions/manifestSettings"
               }
             }
           }
@@ -2301,7 +2575,7 @@
       "type": "array",
       "items": {
         "description": "Represents a tag; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-        "$ref": "#/$defs/i18n_key_string",
+        "$ref": "#/definitions/i18n_key_string",
         "type": "string"
       }
     },
@@ -2392,7 +2666,7 @@
       "additionalProperties": false,
       "properties": {
         "template": {
-          "$ref": "#/$defs/actionsStripItem"
+          "$ref": "#/definitions/actionsStripItem"
         },
         "path": {
           "type": "string"
@@ -2410,7 +2684,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2427,10 +2701,10 @@
           "type": "string",
           "oneOf": [
             {
-              "$ref": "#/$defs/Enums.ValueColor"
+              "$ref": "#/definitions/Enums.ValueColor"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         }
@@ -2447,7 +2721,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2456,10 +2730,10 @@
           "type": "string",
           "oneOf": [
             {
-              "$ref": "#/$defs/Enums.ValueColor"
+              "$ref": "#/definitions/Enums.ValueColor"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         }
@@ -2482,7 +2756,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2498,7 +2772,7 @@
               "default": true
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2506,12 +2780,12 @@
           "description": "The bars of the chart",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/MicroChart.StackedBar.Bar"
+            "$ref": "#/definitions/MicroChart.StackedBar.Bar"
           }
         },
         "visible": {
           "description": "Represents the visibility of the chart bar",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -2532,7 +2806,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2543,7 +2817,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2554,7 +2828,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2569,7 +2843,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2582,10 +2856,10 @@
           "type": "string",
           "oneOf": [
             {
-              "$ref": "#/$defs/Enums.ValueColor"
+              "$ref": "#/definitions/Enums.ValueColor"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2593,12 +2867,12 @@
           "description": "The thresholds indicators of the bar",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/MicroChart.Bullet.Threshold"
+            "$ref": "#/definitions/MicroChart.Bullet.Threshold"
           }
         },
         "visible": {
           "description": "Represents the visibility of the chart",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -2628,7 +2902,7 @@
           "type": "string"
         },
         "additionalText": {
-          "description": "The secondary value for the combo box item",
+          "description": "The secondary value for the combo box item.",
           "type": "string"
         }
       }
@@ -2676,14 +2950,10 @@
       "description": "Parameters for ShowCard action",
       "type": "object",
       "additionalProperties": false,
+      "required": ["manifest"],
       "properties": {
-        "childCardKey": {
-          "description": "The key of the card to be shown",
-          "type": "string"
-        },
         "manifest": {
-          "deprecated": true,
-          "description": "[Deprecated] Child card manifest",
+          "description": "An application identifier consisting of semanticObject and action",
           "oneOf": [
             {
               "type": "string"
@@ -2711,7 +2981,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         }
@@ -2730,7 +3000,7 @@
       "properties": {
         "ibnTarget": {
           "description": "An application identifier consisting of semanticObject and action",
-          "$ref": "#/$defs/ibnTarget"
+          "$ref": "#/definitions/ibnTarget"
         },
         "ibnParams": {
           "description": "Key/value pairs for parameters of the target application",
@@ -2773,6 +3043,11 @@
         },
         "staleWhileRevalidate": {
           "description": "Should we show stale cache while revalidating",
+          "type": "boolean",
+          "default": false
+        },
+        "noStore": {
+          "description": "[Deprecated] Set to true to disable caching for this card",
           "type": "boolean",
           "default": false
         },
@@ -2825,6 +3100,28 @@
         }
       }
     },
+    "service_0": {
+      "description": "Represents service that will be used for actions",
+      "oneOf": [
+        {
+          "description": "Represents name of the Service to be used for the action",
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "description": "Represents name of the Service to be used for the action",
+              "type": "string"
+            },
+            "parameters": {
+              "type": "object"
+            }
+          }
+        }
+      ]
+    },
     "request": {
       "description": "Represents request attributes",
       "type": "object",
@@ -2840,7 +3137,7 @@
               "default": "cors"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2865,7 +3162,7 @@
               "default": "GET"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2885,19 +3182,19 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "timeout": {
-          "description": "A timeout (in milliseconds) for the request. A value of 0 means there will be no timeout",
+          "description": "A timeout (in milliseconds) for the request. A value of 0 means there will be no timeout.",
           "oneOf": [
             {
               "type": "number",
               "default": 15000
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2909,7 +3206,7 @@
               "default": false
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -2917,12 +3214,12 @@
           "description": "Map of requests to be batched",
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/$defs/batchRequest"
+            "$ref": "#/definitions/batchRequest"
           }
         },
         "cache": {
           "description": "Cache control settings",
-          "$ref": "#/$defs/cache"
+          "$ref": "#/definitions/cache"
         }
       }
     },
@@ -2968,7 +3265,7 @@
           "default": "Transparent"
         },
         {
-          "$ref": "#/$defs/simpleBinding"
+          "$ref": "#/definitions/simpleBinding"
         }
       ]
     },
@@ -3014,7 +3311,7 @@
               "default": "Type01"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         }
@@ -3062,7 +3359,7 @@
               "default": "Type01"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         }
@@ -3090,7 +3387,7 @@
           "type": "string"
         },
         "icon": {
-          "$ref": "#/$defs/simpleIcon"
+          "$ref": "#/definitions/simpleIcon"
         },
         "type": {
           "description": "The type of the item - one of the types defined in the legend",
@@ -3121,7 +3418,7 @@
               "default": "Type01"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3129,7 +3426,7 @@
           "description": "Defines actions that can be applied on the item",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/action"
+            "$ref": "#/definitions/action"
           }
         }
       }
@@ -3140,7 +3437,7 @@
       "additionalProperties": false,
       "properties": {
         "template": {
-          "$ref": "#/$defs/ContentType.Calendar.SpecialDate.Template"
+          "$ref": "#/definitions/ContentType.Calendar.SpecialDate.Template"
         },
         "path": {
           "description": "Defines the path to the structure holding the data about the specialDates",
@@ -3154,7 +3451,7 @@
       "additionalProperties": false,
       "properties": {
         "template": {
-          "$ref": "#/$defs/ContentType.Calendar.LegendItem.Template"
+          "$ref": "#/definitions/ContentType.Calendar.LegendItem.Template"
         },
         "path": {
           "description": "Defines the path to the structure holding the data about the legendItems",
@@ -3168,7 +3465,7 @@
       "additionalProperties": false,
       "properties": {
         "template": {
-          "$ref": "#/$defs/ContentType.Calendar.Item.Template"
+          "$ref": "#/definitions/ContentType.Calendar.Item.Template"
         },
         "path": {
           "description": "Defines the path to the structure holding the data about the items",
@@ -3185,10 +3482,10 @@
           "description": "Represents state color",
           "oneOf": [
             {
-              "$ref": "#/$defs/state"
+              "$ref": "#/definitions/state"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3199,7 +3496,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3215,6 +3512,19 @@
         {
           "type": "boolean",
           "default": false
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "[Deprecated]",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "target": {
+              "$ref": "#/definitions/target"
+            }
+          }
         }
       ]
     },
@@ -3231,7 +3541,7 @@
       "properties": {
         "title": {
           "description": "Represents a title of the column; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XCOL",
             "comment": "Column title"
@@ -3245,10 +3555,10 @@
           "description": "Defines the horizontal alignment of the column content",
           "oneOf": [
             {
-              "$ref": "#/$defs/textAlign"
+              "$ref": "#/definitions/textAlign"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3257,47 +3567,63 @@
           "type": "string"
         },
         "additionalText": {
-          "description": "Represents the additional text for the identifier column",
+          "description": "Represents the additional text for the identifier column.",
           "type": "string"
         },
         "icon": {
           "description": "Represents column with icon",
-          "$ref": "#/$defs/icon"
+          "$ref": "#/definitions/icon"
         },
         "state": {
           "description": "Defines the state of the column",
           "oneOf": [
             {
-              "$ref": "#/$defs/state"
+              "$ref": "#/definitions/state"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
+            }
+          ]
+        },
+        "url": {
+          "description": "[Deprecated] Defines the URL string",
+          "type": "string"
+        },
+        "target": {
+          "description": "[Deprecated] Specifies where to open the 'url', if it is provided",
+          "type": "string",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/target"
+            },
+            {
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "identifier": {
           "oneOf": [
             {
-              "$ref": "#/$defs/identifier"
+              "$ref": "#/definitions/identifier"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "progressIndicator": {
           "description": "Represents progress indicator attributes",
-          "$ref": "#/$defs/progressIndicator"
+          "$ref": "#/definitions/progressIndicator"
         },
         "visible": {
           "description": "Represents the visibility state of the column",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         },
         "actions": {
           "description": "Defines actions that can be applied on the group item",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/action"
+            "$ref": "#/definitions/action"
           }
         },
         "showStateIcon": {
@@ -3307,7 +3633,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3325,6 +3651,10 @@
         "src": {
           "type": "string",
           "description": "Represents icon name or source URL"
+        },
+        "text": {
+          "type": "string",
+          "description": "[Deprecated] Represents text that will be displayed in the icon"
         },
         "initials": {
           "type": "string",
@@ -3353,7 +3683,7 @@
               "default": "Error"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3365,7 +3695,7 @@
               "default": false
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3376,7 +3706,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3387,7 +3717,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3399,7 +3729,7 @@
               "default": false
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3435,13 +3765,13 @@
       "required": ["icon"],
       "properties": {
         "icon": {
-          "$ref": "#/$defs/ContentType.Object.Item.IconGroupIcon"
+          "$ref": "#/definitions/ContentType.Object.Item.IconGroupIcon"
         },
         "actions": {
           "description": "Defines actions that can be applied on the icon",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/action"
+            "$ref": "#/definitions/action"
           }
         }
       }
@@ -3468,7 +3798,7 @@
               "default": "None"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3478,10 +3808,10 @@
           "oneOf": [
             {
               "description": "The state color of the main indicator",
-              "$ref": "#/$defs/Enums.ValueColor"
+              "$ref": "#/definitions/Enums.ValueColor"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3492,11 +3822,17 @@
               "default": "Default"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         }
       }
+    },
+    "target_0": {
+      "description": "Specifies where to open an URL",
+      "type": "string",
+      "enum": ["_blank", "_self"],
+      "default": "_blank"
     },
     "ContentType.Object.Item": {
       "description": "Represents a single item of information. It can contain label, value and image",
@@ -3505,7 +3841,7 @@
       "properties": {
         "icon": {
           "description": "Defines the icon of the item",
-          "$ref": "#/$defs/icon"
+          "$ref": "#/definitions/icon"
         },
         "label": {
           "description": "Defines the label of the item",
@@ -3518,7 +3854,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3551,7 +3887,7 @@
           "type": "string"
         },
         "type": {
-          "description": "Defines the type of the displayed information.",
+          "description": "Defines the type of the displayed information. Some of the types are deprecated",
           "type": "string",
           "oneOf": [
             {
@@ -3566,36 +3902,59 @@
                 "Duration",
                 "DateRange",
                 "RatingIndicator",
+                "phone",
+                "email",
+                "link",
+                "text",
                 "Image"
               ],
               "default": "Default"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
+        },
+        "url": {
+          "description": "[Deprecated] Defines the URL string. Works only with items of type 'link'",
+          "type": "string"
+        },
+        "target": {
+          "description": "[Deprecated] Specifies the target of the link - it works like the target property of the HTML 'a' tag. Works only with items of type 'link'",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/target"
+            },
+            {
+              "$ref": "#/definitions/simpleBinding"
+            }
+          ]
+        },
+        "emailSubject": {
+          "description": "[Deprecated] Represents the subject of the email. Works only with item of type 'email'",
+          "type": "string"
         },
         "actions": {
           "description": "Defines actions that can be applied on the group item",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/action"
+            "$ref": "#/definitions/action"
           }
         },
         "visible": {
           "description": "Represents the visibility state of the item",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         },
         "mainIndicator": {
           "description": "[Experimental]",
-          "$ref": "#/$defs/ContentType.Object.Item.MainIndicator"
+          "$ref": "#/definitions/ContentType.Object.Item.MainIndicator"
         },
         "sideIndicators": {
           "description": "[Experimental] Multiple side indicators that relate to the main numeric indicator",
           "type": "array",
           "maxItems": 2,
           "items": {
-            "$ref": "#/$defs/HeaderType.Numeric.SideIndicator"
+            "$ref": "#/definitions/HeaderType.Numeric.SideIndicator"
           }
         },
         "sideIndicatorsAlignment": {
@@ -3607,13 +3966,13 @@
               "default": "Begin"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "template": {
           "description": "[Experimental] Template definition for the icons in the group",
-          "$ref": "#/$defs/ContentType.Object.Item.IconGroupTemplate"
+          "$ref": "#/definitions/ContentType.Object.Item.IconGroupTemplate"
         },
         "path": {
           "description": "[Experimental] Binding path to the icon data",
@@ -3627,7 +3986,7 @@
               "default": "XS"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3638,7 +3997,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3648,7 +4007,7 @@
         },
         "state": {
           "description": "The state color of the item",
-          "$ref": "#/$defs/state"
+          "$ref": "#/definitions/state"
         },
         "showStateIcon": {
           "description": "Defines if a default state icon is shown",
@@ -3657,7 +4016,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3665,27 +4024,16 @@
           "description": "The custom state icon",
           "type": "string"
         },
-        "inverted": {
-          "description": "Specifies whether the background color reflects the set \"state\" instead of the control's text",
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ]
-        },
         "id": {
           "description": "ID for input fields",
           "type": "string"
         },
         "selectedKey": {
-          "description": "Defines the initially selected key from the given options for combo box",
+          "description": "Defines the initially selected key from the given options for combo box.",
           "type": "string"
         },
         "placeholder": {
-          "description": "Placeholder for items of type 'Input', 'TextArea', 'ComboBox', 'Duration' and 'DateRange'",
+          "description": "Placeholder for input fields",
           "type": "string"
         },
         "rows": {
@@ -3699,7 +4047,7 @@
           "additionalProperties": false,
           "properties": {
             "template": {
-              "$ref": "#/$defs/ContentType.Object.Item.ComboBoxItemTemplate"
+              "$ref": "#/definitions/ContentType.Object.Item.ComboBoxItemTemplate"
             },
             "path": {
               "description": "Defines the path to the structure holding the data about the items",
@@ -3712,7 +4060,7 @@
         "validations": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/ContentType.Object.Item.Validation"
+            "$ref": "#/definitions/ContentType.Object.Item.Validation"
           }
         },
         "maxValue": {
@@ -3723,7 +4071,7 @@
               "default": 5
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3735,7 +4083,7 @@
               "default": "Half"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3743,13 +4091,9 @@
           "type": "string",
           "description": "Represents image source URL"
         },
-        "fallbackSrc": {
-          "type": "string",
-          "description": "Represents fallback image source URL"
-        },
         "alt": {
           "type": "string",
-          "description": "The alternative text that is displayed in case the image is not available, or cannot be displayed"
+          "description": "The alternative text that is displayed in case the image is not available, or cannot be displayed."
         },
         "fullWidth": {
           "description": "Defines if the image will take the full width of the group, including the paddings. If set to false there will be padding. For best result use together with 'alignment': 'Stretched' for the group",
@@ -3759,7 +4103,7 @@
               "default": false
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3768,11 +4112,11 @@
           "type": "string"
         },
         "imageFit": {
-          "description": "This property is for adjusting the image size using the CSS style <code>background-size</code>",
+          "description": "This property is for adjusting the image size using the CSS style <code>background-size</code>.",
           "type": "string"
         },
         "imagePosition": {
-          "description": "This property is for adjusting the image position using the CSS style <code>background-position</code>",
+          "description": "This property is for adjusting the image position using the CSS style <code>background-position</code>.",
           "type": "string"
         },
         "overlay": {
@@ -3787,14 +4131,9 @@
               "description": "The title",
               "type": "string"
             },
-            "subtitle": {
-              "description": "The subtitle",
-              "type": "string"
-            },
             "subTitle": {
-              "description": "The subtitle",
-              "type": "string",
-              "deprecated": true
+              "description": "The subTitle",
+              "type": "string"
             },
             "verticalPosition": {
               "description": "The vertical alignment of the texts",
@@ -3805,7 +4144,7 @@
               "type": "string"
             },
             "padding": {
-              "description": "Set to 'MediumStart' to have medium size padding in the beginning of the texts",
+              "description": "Set to 'MediumStart' to have medium size padding in the beginning of the texts.",
               "type": "string"
             },
             "textColor": {
@@ -3813,7 +4152,7 @@
               "type": "string"
             },
             "textFilter": {
-              "description": "The CSS filter which will be applied to the text",
+              "description": "The CSS filter which will be applied to the text.",
               "type": "string"
             },
             "background": {
@@ -3821,7 +4160,7 @@
               "type": "string"
             },
             "animation": {
-              "description": "Defines the animation that should be used to show up the overlay",
+              "description": "Defines the animation that should be used to show up the overlay.",
               "type": "string"
             }
           }
@@ -3836,32 +4175,32 @@
       "properties": {
         "title": {
           "description": "Represents a title of the object group; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XGRP",
             "comment": "Object group title"
           }
         },
         "titleMaxLines": {
-          "description": "[Experimental] Limits the number of lines for wrapping the group title",
+          "description": "[Experimental] Limits the number of lines for wrapping the group title.",
           "oneOf": [
             {
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ],
           "default": 1
         },
         "labelWrapping": {
-          "description": "[Experimental] Determines whether the labels of the group items will be wrapped",
+          "description": "[Experimental] Determines whether the labels of the group items will be wrapped.",
           "oneOf": [
             {
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ],
           "default": false
@@ -3870,12 +4209,12 @@
           "description": "Represents items of information",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/ContentType.Object.Item"
+            "$ref": "#/definitions/ContentType.Object.Item"
           }
         },
         "visible": {
           "description": "Represents the visibility state of the group",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         },
         "alignment": {
           "description": "[Experimental] Alignment of the group",
@@ -3895,7 +4234,7 @@
         },
         "visible": {
           "description": "Represents the visibility state of the icon",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -3906,19 +4245,19 @@
       "properties": {
         "title": {
           "description": "The title of the timeline item",
-          "$ref": "#/$defs/field"
+          "$ref": "#/definitions/field"
         },
         "description": {
           "description": "The description of the timeline item",
-          "$ref": "#/$defs/field"
+          "$ref": "#/definitions/field"
         },
         "dateTime": {
           "description": "The dateTime value of the timeline item",
-          "$ref": "#/$defs/field"
+          "$ref": "#/definitions/field"
         },
         "owner": {
           "description": "The owner of the timeline item",
-          "$ref": "#/$defs/field"
+          "$ref": "#/definitions/field"
         },
         "ownerImage": {
           "description": "The owner image of the timeline item",
@@ -3930,13 +4269,13 @@
         },
         "icon": {
           "description": "The icon of the timeline item",
-          "$ref": "#/$defs/simpleIcon"
+          "$ref": "#/definitions/simpleIcon"
         },
         "actions": {
           "description": "Defines actions that can be applied on the item level",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/action"
+            "$ref": "#/definitions/action"
           }
         }
       }
@@ -3952,7 +4291,7 @@
               "enum": ["Measure", "Dimension"]
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -3978,6 +4317,10 @@
           "description": "The name of the measure",
           "type": "string"
         },
+        "label": {
+          "description": "[Deprecated] Label for the measure",
+          "type": "string"
+        },
         "value": {
           "type": "string",
           "description": "Binding path to the data"
@@ -3991,6 +4334,10 @@
       "properties": {
         "name": {
           "description": "The name of the dimension",
+          "type": "string"
+        },
+        "label": {
+          "description": "[Deprecated] Label for the dimension",
           "type": "string"
         },
         "value": {
@@ -4010,7 +4357,70 @@
               "default": "string"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
+            }
+          ]
+        }
+      }
+    },
+    "ContentType.Analytical.AxisText": {
+      "description": "Represents descriptive text of the axis",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "visible": {
+          "description": "Represents the visibility state of the descriptive axis text",
+          "$ref": "#/definitions/visibility"
+        }
+      }
+    },
+    "ContentType.Analytical.DataLabel": {
+      "description": "Represents value attributes in the plot area",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "visible": {
+          "description": "Visibility of the data labels",
+          "$ref": "#/definitions/visibility"
+        },
+        "showTotal": {
+          "description": "Visibility of data label for total value in some charts",
+          "$ref": "#/definitions/visibility"
+        }
+      }
+    },
+    "ContentType.Analytical.Legend": {
+      "description": "[Deprecated] Represents chart legend attributes",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "visible": {
+          "description": "Defines whether the legend will be visible",
+          "$ref": "#/definitions/visibility"
+        },
+        "position": {
+          "description": "Defines where the legend will be positioned",
+          "type": "string",
+          "oneOf": [
+            {
+              "enum": ["Top", "Bottom", "Left", "Right"],
+              "default": "Right"
+            },
+            {
+              "$ref": "#/definitions/simpleBinding"
+            }
+          ]
+        },
+        "alignment": {
+          "description": "Defines how the legend will be aligned",
+          "type": "string",
+          "oneOf": [
+            {
+              "enum": ["TopLeft", "Center"],
+              "default": "TopLeft"
+            },
+            {
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         }
@@ -4038,9 +4448,13 @@
               "default": "Circle"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
+        },
+        "text": {
+          "description": "[Deprecated] Initials for the avatar. Up to 2 symbols. If the image provided to the 'src' property fails to load, then the text will be shown",
+          "type": "string"
         },
         "initials": {
           "description": "Used as fallback if the 'src' property is not set or there is an issue with the resource. Up to two Latin letters can be displayed",
@@ -4053,7 +4467,7 @@
               "enum": ["XS", "S", "M"]
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -4065,16 +4479,16 @@
               "default": "Cover"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "backgroundColor": {
-          "$ref": "#/$defs/iconBackgroundColor"
+          "$ref": "#/definitions/iconBackgroundColor"
         },
         "visible": {
           "description": "Represents the visibility state of the icon",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -4084,13 +4498,58 @@
       "enum": ["Error", "Success", "Warning", "None", "Information"],
       "default": "None"
     },
+    "ContentType.List.Item.ValueStateItem": {
+      "description": "Represents value and state information for an object",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "The value of the field"
+        },
+        "state": {
+          "description": "The state of the field",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/state"
+            },
+            {
+              "$ref": "#/definitions/simpleBinding"
+            }
+          ]
+        },
+        "showStateIcon": {
+          "description": "Defines if a default state icon is shown",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/definitions/simpleBinding"
+            }
+          ]
+        },
+        "customStateIcon": {
+          "description": "The custom state icon",
+          "type": "string"
+        },
+        "visible": {
+          "description": "Visibility of the item",
+          "$ref": "#/definitions/visibility"
+        },
+        "title": {
+          "description": "Title of the data point. This is just a placeholder to store the title, title will not be rendered on the screen. This is needed to prevent the loss of columnn names while transforming table card to list card.",
+          "type": "string"
+        }
+      }
+    },
     "field": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "label": {
           "description": "Represents a label of the field; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XFLD",
             "comment": "Field label"
@@ -4102,7 +4561,7 @@
         },
         "visible": {
           "description": "Represents the visibility of the field",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -4146,7 +4605,7 @@
           "description": "The title of the item",
           "oneOf": [
             {
-              "$ref": "#/$defs/field"
+              "$ref": "#/definitions/field"
             },
             {
               "type": "string"
@@ -4157,7 +4616,7 @@
           "description": "The description of the item",
           "oneOf": [
             {
-              "$ref": "#/$defs/field"
+              "$ref": "#/definitions/field"
             },
             {
               "type": "string"
@@ -4166,26 +4625,26 @@
         },
         "info": {
           "description": "Defines an additional information text",
-          "$ref": "#/$defs/objectStatus"
+          "$ref": "#/definitions/ContentType.List.Item.ValueStateItem"
         },
         "highlight": {
           "type": "string",
           "description": "The highlight state of the item",
           "oneOf": [
             {
-              "$ref": "#/$defs/state"
+              "$ref": "#/definitions/state"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "highlightText": {
           "type": "string",
-          "description": "Defines the semantics of the 'highlight' property. It is used for accessibility purposes"
+          "description": "Defines the semantics of the 'highlight' property. It is used for accessibility purposes."
         },
         "icon": {
-          "$ref": "#/$defs/icon"
+          "$ref": "#/definitions/icon"
         },
         "attributesLayoutType": {
           "description": "Defines the layout type of the attributes",
@@ -4195,7 +4654,7 @@
               "default": "TwoColumns"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -4203,18 +4662,18 @@
           "description": "Defines the attributes",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/objectStatus"
+            "$ref": "#/definitions/ContentType.List.Item.ValueStateItem"
           }
         },
         "actions": {
           "description": "Defines actions that can be applied on the item",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/action"
+            "$ref": "#/definitions/action"
           }
         },
         "chart": {
-          "$ref": "#/$defs/MicroChart"
+          "$ref": "#/definitions/MicroChart"
         },
         "actionsStrip": {
           "description": "Describes actions strip",
@@ -4222,11 +4681,11 @@
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/actionsStripItem"
+                "$ref": "#/definitions/actionsStripItem"
               }
             },
             {
-              "$ref": "#/$defs/actionsStrip"
+              "$ref": "#/definitions/actionsStrip"
             }
           ]
         }
@@ -4236,140 +4695,6 @@
       "description": "Defines the min-height of the Content as a CSS value",
       "type": "string"
     },
-    "HeaderType.InfoSection.Item": {
-      "description": "Represents an info section item",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/objectStatus"
-        }
-      ]
-    },
-    "HeaderType.InfoSection.Column": {
-      "description": "Represents a column of the info section",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "rows": {
-          "description": "Represents the rows of the column",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/HeaderType.InfoSection.Row"
-          }
-        },
-        "items": {
-          "description": "Represents the items of the column",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/HeaderType.InfoSection.Item"
-          }
-        }
-      }
-    },
-    "justifyContent": {
-      "description": "Defines how the space is distributed between and around content items",
-      "type": "string",
-      "oneOf": [
-        {
-          "enum": ["SpaceBetween", "Start", "End"],
-          "default": "SpaceBetween"
-        },
-        {
-          "$ref": "#/$defs/simpleBinding"
-        }
-      ]
-    },
-    "objectStatus": {
-      "description": "Represents value and state information for an object",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "description": "Represents the type of the object",
-          "type": "string",
-          "enum": ["Status"]
-        },
-        "value": {
-          "type": "string",
-          "description": "The value of the field"
-        },
-        "state": {
-          "description": "The state of the field",
-          "oneOf": [
-            {
-              "$ref": "#/$defs/state"
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ]
-        },
-        "showStateIcon": {
-          "description": "Defines if a default state icon is shown",
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ]
-        },
-        "customStateIcon": {
-          "description": "The custom state icon",
-          "type": "string"
-        },
-        "visible": {
-          "description": "Visibility of the item",
-          "$ref": "#/$defs/visibility"
-        },
-        "title": {
-          "description": "Title of the data point. This is just a placeholder to store the title, title will not be rendered on the screen. This is needed to prevent the loss of column names while transforming table card to list card",
-          "type": "string"
-        },
-        "inverted": {
-          "description": "Specifies whether the background color reflects the set \"state\" instead of the control's text",
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ]
-        },
-        "actions": {
-          "description": "Actions that can be applied on the status",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/action"
-          }
-        }
-      }
-    },
-    "HeaderType.InfoSection.Row": {
-      "description": "Represents a row of the info section",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "justifyContent": {
-          "$ref": "#/$defs/justifyContent"
-        },
-        "columns": {
-          "description": "Represents the columns of the row",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/HeaderType.InfoSection.Column"
-          }
-        },
-        "items": {
-          "description": "Represents the items of the row",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/HeaderType.InfoSection.Item"
-          }
-        }
-      }
-    },
     "Enums.ValueColor": {
       "enum": ["Critical", "Error", "Good", "Neutral"],
       "default": "Neutral"
@@ -4378,13 +4703,13 @@
       "description": "[Experimental] Describes MicroChart attributes",
       "oneOf": [
         {
-          "$ref": "#/$defs/MicroChart.Generic"
+          "$ref": "#/definitions/MicroChart.Generic"
         },
         {
-          "$ref": "#/$defs/MicroChart.Bullet"
+          "$ref": "#/definitions/MicroChart.Bullet"
         },
         {
-          "$ref": "#/$defs/MicroChart.StackedBar"
+          "$ref": "#/definitions/MicroChart.StackedBar"
         }
       ]
     },
@@ -4411,16 +4736,16 @@
           "oneOf": [
             {
               "description": "The state color of the side indicator",
-              "$ref": "#/$defs/Enums.ValueColor"
+              "$ref": "#/definitions/Enums.ValueColor"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "visible": {
           "description": "Visibility of the side indicator",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -4446,7 +4771,7 @@
               "default": "None"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -4456,30 +4781,16 @@
           "oneOf": [
             {
               "description": "The state color of the main indicator",
-              "$ref": "#/$defs/Enums.ValueColor"
+              "$ref": "#/definitions/Enums.ValueColor"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "visible": {
           "description": "Visibility of the main indicator",
-          "$ref": "#/$defs/visibility"
-        }
-      }
-    },
-    "HeaderType.InfoSection": {
-      "description": "Represents the info section of the header",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "rows": {
-          "description": "Represents the rows of the info section",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/HeaderType.InfoSection.Row"
-          }
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -4492,9 +4803,20 @@
           "default": "Normal"
         },
         {
-          "$ref": "#/$defs/simpleBinding"
+          "$ref": "#/definitions/simpleBinding"
         }
       ]
+    },
+    "closeButton": {
+      "description": "[Experimental] Represents attributes of the Close button",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "visible": {
+          "description": "[Experimental] Represents the visibility of the Close button",
+          "$ref": "#/definitions/visibility"
+        }
+      }
     },
     "status": {
       "description": "Represents status attributes",
@@ -4508,13 +4830,13 @@
               "type": "string"
             },
             {
-              "$ref": "#/$defs/statusTextFormatter"
+              "$ref": "#/definitions/statusTextFormatter"
             }
           ]
         },
         "visible": {
           "description": "Represents the visibility of the status text",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -4540,72 +4862,26 @@
               "default": "Circle"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
+        },
+        "text": {
+          "description": "[Deprecated] Initials for the avatar. Up to 2 symbols. If the image provided to the 'src' property fails to load, then the text will be shown",
+          "type": "string"
         },
         "initials": {
           "description": "Used as fallback if the 'src' property is not set or there is an issue with the resource. Up to two Latin letters can be displayed",
           "type": "string"
         },
         "backgroundColor": {
-          "$ref": "#/$defs/iconBackgroundColor"
-        },
-        "fitType": {
-          "description": "Defines how the image fits in the icon area",
-          "oneOf": [
-            {
-              "enum": ["Cover", "Contain"],
-              "default": "Cover"
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ]
-        },
-        "state": {
-          "description": "Defines the state of the icon",
-          "oneOf": [
-            {
-              "$ref": "#/$defs/state"
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ]
+          "$ref": "#/definitions/iconBackgroundColor"
         },
         "visible": {
           "description": "Visibility of the icon",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
-      },
-      "allOf": [
-        {
-          "anyOf": [
-            {
-              "required": ["src"]
-            },
-            {
-              "required": ["initials"]
-            },
-            {
-              "required": ["state"]
-            }
-          ]
-        },
-        {
-          "not": {
-            "anyOf": [
-              {
-                "required": ["src", "state"]
-              },
-              {
-                "required": ["initials", "state"]
-              }
-            ]
-          }
-        }
-      ]
+      }
     },
     "action": {
       "description": "Represents actions that can be applied on card elements",
@@ -4621,7 +4897,7 @@
               "enum": ["Custom", "Navigation", "Submit", "ShowCard", "HideCard"]
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -4632,12 +4908,31 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
+        "service": {
+          "$ref": "#/definitions/service"
+        },
+        "url": {
+          "description": "[Deprecated] Represents the URL that will be used as navigation target if no service is provided",
+          "type": "string"
+        },
         "parameters": {
           "description": "Parameters passed to the navigation action handler"
+        },
+        "target": {
+          "description": "[Deprecated] Specifies where to open the 'url', if it is provided",
+          "type": "string",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/target"
+            },
+            {
+              "$ref": "#/definitions/simpleBinding"
+            }
+          ]
         }
       },
       "allOf": [
@@ -4652,7 +4947,7 @@
           "then": {
             "properties": {
               "parameters": {
-                "$ref": "#/$defs/customActionParameters"
+                "$ref": "#/definitions/customActionParameters"
               }
             }
           }
@@ -4670,10 +4965,10 @@
               "parameters": {
                 "oneOf": [
                   {
-                    "$ref": "#/$defs/navigationActionParameters"
+                    "$ref": "#/definitions/navigationActionParameters"
                   },
                   {
-                    "$ref": "#/$defs/navigationActionIBParameters"
+                    "$ref": "#/definitions/navigationActionIBParameters"
                   }
                 ]
               }
@@ -4691,7 +4986,7 @@
           "then": {
             "properties": {
               "parameters": {
-                "$ref": "#/$defs/submitActionParameters"
+                "$ref": "#/definitions/submitActionParameters"
               }
             }
           }
@@ -4707,7 +5002,7 @@
           "then": {
             "properties": {
               "parameters": {
-                "$ref": "#/$defs/showCardActionParameters"
+                "$ref": "#/definitions/showCardActionParameters"
               }
             }
           }
@@ -4723,7 +5018,7 @@
           "then": {
             "properties": {
               "parameters": {
-                "$ref": "#/$defs/hideCardActionParameters"
+                "$ref": "#/definitions/hideCardActionParameters"
               }
             }
           }
@@ -4743,82 +5038,60 @@
         },
         "title": {
           "description": "Represents a title of the header; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Header title"
           }
         },
         "titleMaxLines": {
-          "description": "[Experimental] Limit the number of lines for the title",
+          "description": "[Experimental] Limit the number of lines for the title.",
           "oneOf": [
             {
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ],
           "default": 3
         },
-        "subtitle": {
+        "subTitle": {
           "description": "Represents a subtitle to the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Header subtitle"
           }
         },
-        "subTitle": {
-          "description": "[Deprecated] Represents a subtitle to the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
-          "i18n": {
-            "type": "XTIT",
-            "comment": "Header subtitle"
-          },
-          "deprecated": true
-        },
-        "subtitleMaxLines": {
-          "description": "[Experimental] Limit the number of lines for the sub title",
-          "oneOf": [
-            {
-              "type": "number"
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ],
-          "default": 2
-        },
         "subTitleMaxLines": {
-          "description": "[Deprecated] Limit the number of lines for the sub title",
+          "description": "[Experimental] Limit the number of lines for the sub title.",
           "oneOf": [
             {
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ],
-          "deprecated": true,
           "default": 2
         },
         "actions": {
           "description": "Represents a description of the actions that can be applied on a part of a card",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/action"
+            "$ref": "#/definitions/action"
           }
         },
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "unitOfMeasurement": {
           "description": "Represents unit of measurement for the whole numeric header",
           "type": "string"
         },
         "mainIndicator": {
-          "$ref": "#/$defs/HeaderType.Numeric.MainIndicator"
+          "$ref": "#/definitions/HeaderType.Numeric.MainIndicator"
         },
         "sideIndicatorsAlignment": {
           "description": "The alignment of the side indicators",
@@ -4829,7 +5102,7 @@
               "default": "Begin"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -4838,13 +5111,13 @@
           "type": "string"
         },
         "detailsMaxLines": {
-          "description": "[Experimental] Limit the number of lines for the details text",
+          "description": "[Experimental] Limit the number of lines for the details text.",
           "oneOf": [
             {
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ],
           "default": 1
@@ -4854,27 +5127,27 @@
           "type": "array",
           "maxItems": 2,
           "items": {
-            "$ref": "#/$defs/HeaderType.Numeric.SideIndicator"
+            "$ref": "#/definitions/HeaderType.Numeric.SideIndicator"
           }
         },
         "status": {
           "description": "Represents the status of the card",
-          "$ref": "#/$defs/status"
+          "$ref": "#/definitions/status"
+        },
+        "closeButton": {
+          "description": "[Experimental] Represents the Close button when a card is opened by the ShowCard action.",
+          "$ref": "#/definitions/closeButton"
         },
         "wrappingType": {
-          "description": "[Experimental] The wrapping type for texts inside the header",
-          "$ref": "#/$defs/wrappingType"
+          "description": "[Experimental] The wrapping type for texts inside the header.",
+          "$ref": "#/definitions/wrappingType"
         },
         "visible": {
           "description": "[Experimental] Visibility of the header",
-          "$ref": "#/$defs/visibility"
-        },
-        "infoSection": {
-          "description": "[Experimental] Represents the info section of the header",
-          "$ref": "#/$defs/HeaderType.InfoSection"
+          "$ref": "#/definitions/visibility"
         },
         "chart": {
-          "$ref": "#/$defs/MicroChart"
+          "$ref": "#/definitions/MicroChart"
         }
       }
     },
@@ -4890,62 +5163,40 @@
         },
         "title": {
           "description": "Represents a title of the header; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Header title"
           }
         },
         "titleMaxLines": {
-          "description": "[Experimental] Limit the number of lines for the title",
+          "description": "[Experimental] Limit the number of lines for the title.",
           "oneOf": [
             {
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ],
           "default": 3
         },
         "subTitle": {
-          "description": "[Deprecated] Represents a subtitle to the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
-          "deprecated": true,
-          "i18n": {
-            "type": "XTIT",
-            "comment": "Header subtitle"
-          }
-        },
-        "subtitle": {
           "description": "Represents a subtitle to the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-          "$ref": "#/$defs/i18n_key_string",
+          "$ref": "#/definitions/i18n_key_string",
           "i18n": {
             "type": "XTIT",
             "comment": "Header subtitle"
           }
         },
         "subTitleMaxLines": {
-          "description": "[Deprecated] Limit the number of lines for the sub title",
+          "description": "[Experimental] Limit the number of lines for the sub title.",
           "oneOf": [
             {
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ],
-          "deprecated": true,
-          "default": 2
-        },
-        "subtitleMaxLines": {
-          "description": "[Experimental] Limit the number of lines for the sub title",
-          "oneOf": [
-            {
-              "type": "number"
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ],
           "default": 2
@@ -4954,31 +5205,31 @@
           "description": "Represents a description of the actions that can be applied on a part of a card",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/action"
+            "$ref": "#/definitions/action"
           }
         },
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "icon": {
           "description": "Represents the icon of the card",
-          "$ref": "#/$defs/iconWithoutSize"
+          "$ref": "#/definitions/iconWithoutSize"
         },
         "status": {
           "description": "Represents the status of the card",
-          "$ref": "#/$defs/status"
+          "$ref": "#/definitions/status"
+        },
+        "closeButton": {
+          "description": "[Experimental] Represents the Close button when a card is opened by the ShowCard action.",
+          "$ref": "#/definitions/closeButton"
         },
         "wrappingType": {
-          "description": "[Experimental] The wrapping type for texts inside the header",
-          "$ref": "#/$defs/wrappingType"
+          "description": "[Experimental] The wrapping type for texts inside the header.",
+          "$ref": "#/definitions/wrappingType"
         },
         "visible": {
           "description": "[Experimental] Visibility of the header",
-          "$ref": "#/$defs/visibility"
-        },
-        "infoSection": {
-          "description": "[Experimental] Represents the info section of the header",
-          "$ref": "#/$defs/HeaderType.InfoSection"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -4988,10 +5239,10 @@
       "additionalProperties": false,
       "properties": {
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "minHeight": {
-          "$ref": "#/$defs/minHeight"
+          "$ref": "#/definitions/minHeight"
         },
         "src": {
           "description": "URL of the web page to be embedded",
@@ -5005,27 +5256,27 @@
           "description": "Allow attribute of the iframe",
           "type": "string"
         },
-        "allowFullscreen": {
-          "description": "AllowFullscreen attribute of the iframe",
+        "allowfullscreen": {
+          "description": "Allowfullscreen attribute of the iframe",
           "oneOf": [
             {
               "type": "boolean",
               "default": false
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "omitSandbox": {
-          "description": "If set to 'true' the 'sandbox' attribute will not be added to the iframe",
+          "description": "If set to 'true' the 'sandbox' attribute will not be added to the iframe.",
           "oneOf": [
             {
               "type": "boolean",
               "default": false
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         }
@@ -5041,16 +5292,16 @@
       "additionalProperties": false,
       "properties": {
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "item": {
-          "$ref": "#/$defs/ContentType.Calendar.Item"
+          "$ref": "#/definitions/ContentType.Calendar.Item"
         },
         "legendItem": {
-          "$ref": "#/$defs/ContentType.Calendar.LegendItem"
+          "$ref": "#/definitions/ContentType.Calendar.LegendItem"
         },
         "specialDate": {
-          "$ref": "#/$defs/ContentType.Calendar.SpecialDate"
+          "$ref": "#/definitions/ContentType.Calendar.SpecialDate"
         },
         "date": {
           "description": "The initial date of the calendar which appointments are initially shown. The accepted date format is ISO 8601",
@@ -5059,7 +5310,7 @@
               "type": "string"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5070,7 +5321,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5081,7 +5332,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5092,35 +5343,7 @@
               "type": "string"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ]
-        },
-        "use12HourFormat": {
-          "description": "Displays the time for calendar appointments in either 12h or 24h formats. By default, time is displayed in 24h format",
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ]
-        },
-        "calendarWeekNumbering": {
-          "description": "Set the first day of week based on one of the available options Default, ISO_8601, MiddleEastern, or WesternTraditional",
-          "oneOf": [
-            {
-              "enum": [
-                "Default",
-                "ISO_8601",
-                "MiddleEastern",
-                "WesternTraditional"
-              ],
-              "default": "Default"
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5132,7 +5355,7 @@
               "description": "Represents an action that can be applied on he button showing there are more items than the shown",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/action"
+                "$ref": "#/definitions/action"
               }
             }
           }
@@ -5145,7 +5368,7 @@
       "additionalProperties": false,
       "properties": {
         "minHeight": {
-          "$ref": "#/$defs/minHeight"
+          "$ref": "#/definitions/minHeight"
         }
       }
     },
@@ -5155,20 +5378,20 @@
       "additionalProperties": false,
       "properties": {
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "groups": {
           "description": "Represents groups of information for an object",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/ContentType.Object.Group"
+            "$ref": "#/definitions/ContentType.Object.Group"
           }
         },
         "actions": {
           "description": "Defines actions that can be applied on the content",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/action"
+            "$ref": "#/definitions/action"
           }
         },
         "hasData": {
@@ -5184,7 +5407,7 @@
               "type": "array"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ],
           "default": true
@@ -5197,7 +5420,7 @@
       "additionalProperties": false,
       "properties": {
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "row": {
           "description": "The template for all rows",
@@ -5208,14 +5431,14 @@
               "description": "Defines the columns attributes",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/ContentType.Table.Column"
+                "$ref": "#/definitions/ContentType.Table.Column"
               }
             },
             "actions": {
               "description": "Defines actions that can be applied on the item",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/action"
+                "$ref": "#/definitions/action"
               }
             },
             "highlight": {
@@ -5223,16 +5446,16 @@
               "description": "The highlight state of the row",
               "oneOf": [
                 {
-                  "$ref": "#/$defs/state"
+                  "$ref": "#/definitions/state"
                 },
                 {
-                  "$ref": "#/$defs/simpleBinding"
+                  "$ref": "#/definitions/simpleBinding"
                 }
               ]
             },
             "highlightText": {
               "type": "string",
-              "description": "Defines the semantics of the 'highlight' property. It is used for accessibility purposes"
+              "description": "Defines the semantics of the 'highlight' property. It is used for accessibility purposes."
             }
           }
         },
@@ -5243,7 +5466,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5254,12 +5477,12 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "group": {
-          "$ref": "#/$defs/group"
+          "$ref": "#/definitions/group"
         }
       }
     },
@@ -5269,11 +5492,11 @@
       "additionalProperties": false,
       "properties": {
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "item": {
           "description": "Defines the timeline item",
-          "$ref": "#/$defs/ContentType.Timeline.Item"
+          "$ref": "#/definitions/ContentType.Timeline.Item"
         },
         "maxItems": {
           "description": "Represents number of items",
@@ -5282,7 +5505,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5293,7 +5516,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         }
@@ -5310,7 +5533,7 @@
       "additionalProperties": false,
       "properties": {
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "chartType": {
           "description": "The type of the chart",
@@ -5320,7 +5543,7 @@
               "type": "string"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5331,37 +5554,91 @@
               "type": "object"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "minHeight": {
-          "$ref": "#/$defs/minHeight"
+          "$ref": "#/definitions/minHeight"
+        },
+        "legend": {
+          "$ref": "#/definitions/ContentType.Analytical.Legend"
+        },
+        "plotArea": {
+          "description": "[Deprecated] Describes the plotArea properties",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "dataLabel": {
+              "$ref": "#/definitions/ContentType.Analytical.DataLabel"
+            },
+            "categoryAxisText": {
+              "$ref": "#/definitions/ContentType.Analytical.AxisText"
+            },
+            "valueAxisText": {
+              "$ref": "#/definitions/ContentType.Analytical.AxisText"
+            }
+          }
+        },
+        "title": {
+          "description": "[Deprecated] Represents title attributes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "visible": {
+              "description": "Represents the visibility state of the title",
+              "$ref": "#/definitions/visibility"
+            },
+            "text": {
+              "description": "Represents a title text",
+              "type": "string"
+            },
+            "alignment": {
+              "description": "Represents the title alignment",
+              "oneOf": [
+                {
+                  "enum": ["Left", "Center", "Right"],
+                  "default": "Center"
+                },
+                {
+                  "$ref": "#/definitions/simpleBinding"
+                }
+              ]
+            }
+          }
+        },
+        "measureAxis": {
+          "description": "[Deprecated] Represents the value set for measure axis",
+          "type": "string"
+        },
+        "dimensionAxis": {
+          "description": "[Deprecated] Represents the value set for dimension axis",
+          "type": "string"
         },
         "dimensions": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/ContentType.Analytical.Dimension"
+            "$ref": "#/definitions/ContentType.Analytical.Dimension"
           }
         },
         "measures": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/ContentType.Analytical.Measure"
+            "$ref": "#/definitions/ContentType.Analytical.Measure"
           }
         },
         "feeds": {
           "description": "Feeds for the chart",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/ContentType.Analytical.Field"
+            "$ref": "#/definitions/ContentType.Analytical.Field"
           }
         },
         "actions": {
           "description": "Defines actions that can be applied on the content",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/action"
+            "$ref": "#/definitions/action"
           }
         },
         "actionableArea": {
@@ -5371,7 +5648,7 @@
               "default": "Full"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5388,7 +5665,7 @@
                   "default": false
                 },
                 {
-                  "$ref": "#/$defs/simpleBinding"
+                  "$ref": "#/definitions/simpleBinding"
                 }
               ]
             },
@@ -5404,7 +5681,7 @@
                     "description": "Defines actions that will be triggered when the action button is pressed",
                     "type": "array",
                     "items": {
-                      "$ref": "#/$defs/action"
+                      "$ref": "#/definitions/action"
                     }
                   },
                   "text": {
@@ -5415,18 +5692,6 @@
               }
             }
           }
-        },
-        "tooltips": {
-          "description": "Visualize the tooltips that are generated by Viz charts.",
-          "oneOf": [
-            {
-              "type": "boolean",
-              "default": false
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ]
         }
       }
     },
@@ -5436,10 +5701,10 @@
       "additionalProperties": false,
       "properties": {
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "item": {
-          "$ref": "#/$defs/ContentType.List.Item"
+          "$ref": "#/definitions/ContentType.List.Item"
         },
         "maxItems": {
           "description": "Represents number of items",
@@ -5448,7 +5713,7 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5459,23 +5724,12 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "group": {
-          "$ref": "#/$defs/group"
-        }
-      }
-    },
-    "closeButton": {
-      "description": "[Experimental] Represents attributes of the Close button",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "visible": {
-          "description": "[Experimental] Represents the visibility of the Close button",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/group"
         }
       }
     },
@@ -5486,7 +5740,7 @@
           "default": true
         },
         {
-          "$ref": "#/$defs/simpleBinding"
+          "$ref": "#/definitions/simpleBinding"
         }
       ]
     },
@@ -5495,7 +5749,7 @@
       "additionalProperties": false,
       "properties": {
         "item": {
-          "$ref": "#/$defs/actionsStripItemBindingInfo"
+          "$ref": "#/definitions/actionsStripItemBindingInfo"
         }
       }
     },
@@ -5508,7 +5762,7 @@
           "description": "Action(s) which will be executed when button is pressed",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/action"
+            "$ref": "#/definitions/action"
           }
         },
         "type": {
@@ -5519,7 +5773,7 @@
               "default": "Button"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5537,7 +5791,7 @@
               "default": "High"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5576,7 +5830,7 @@
               "default": "Default"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5588,23 +5842,23 @@
               "default": "None"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "visible": {
           "description": "Determines whether the item is visible",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
     "HeaderType": {
       "oneOf": [
         {
-          "$ref": "#/$defs/HeaderType.Default"
+          "$ref": "#/definitions/HeaderType.Default"
         },
         {
-          "$ref": "#/$defs/HeaderType.Numeric"
+          "$ref": "#/definitions/HeaderType.Numeric"
         }
       ]
     },
@@ -5614,7 +5868,7 @@
       "additionalProperties": false,
       "properties": {
         "request": {
-          "$ref": "#/$defs/request"
+          "$ref": "#/definitions/request"
         },
         "path": {
           "description": "The path from the JSON to be used as root",
@@ -5627,6 +5881,9 @@
           "type": ["object", "array"],
           "additionalProperties": true
         },
+        "service": {
+          "$ref": "#/definitions/service"
+        },
         "updateInterval": {
           "description": "Represents interval in seconds, after which a new data request will be triggered",
           "oneOf": [
@@ -5634,12 +5891,12 @@
               "type": "number"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "extension": {
-          "$ref": "#/$defs/extension"
+          "$ref": "#/definitions/extension"
         },
         "name": {
           "description": "[Experimental] Gives a name to the data section. A model with the same name will be assigned to the card",
@@ -5651,7 +5908,7 @@
           "additionalProperties": false,
           "properties": {
             "request": {
-              "$ref": "#/$defs/request"
+              "$ref": "#/definitions/request"
             },
             "json": {
               "description": "The data to be used directly. Without making requests",
@@ -5659,21 +5916,9 @@
               "additionalProperties": true
             },
             "extension": {
-              "$ref": "#/$defs/extension"
+              "$ref": "#/definitions/extension"
             }
           }
-        }
-      }
-    },
-    "Configuration.ChildCard": {
-      "description": "Represents a configuration for a child card",
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["manifest"],
-      "properties": {
-        "manifest": {
-          "description": "The manifest of the child card",
-          "type": "string"
         }
       }
     },
@@ -5706,7 +5951,7 @@
       "additionalProperties": false,
       "properties": {
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         }
       }
     },
@@ -5745,7 +5990,7 @@
               "const": "ComboBox"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5753,23 +5998,11 @@
           "description": "The value of the filter"
         },
         "selectedKey": {
-          "description": "Defines the initially selected key from the given options for combo box",
+          "description": "Defines the initially selected key from the given options for combo box.",
           "type": "string"
         },
-        "selectedIndex": {
-          "description": "Specifies the index of the selected item. Index value for no selection is -1",
-          "oneOf": [
-            {
-              "type": "number",
-              "default": -1
-            },
-            {
-              "$ref": "#/$defs/simpleBinding"
-            }
-          ]
-        },
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "label": {
           "description": "Label for the filter. Used by screen readers",
@@ -5782,7 +6015,7 @@
         "items": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Configuration.Filter.ComboBoxItem"
+            "$ref": "#/definitions/Configuration.Filter.ComboBoxItem"
           }
         },
         "item": {
@@ -5791,7 +6024,7 @@
           "required": ["template"],
           "properties": {
             "template": {
-              "$ref": "#/$defs/Configuration.Filter.ComboBoxItem"
+              "$ref": "#/definitions/Configuration.Filter.ComboBoxItem"
             },
             "path": {
               "description": "Defines the path to the structure holding the data about the items",
@@ -5801,12 +6034,9 @@
             }
           }
         },
-        "group": {
-          "$ref": "#/$defs/group"
-        },
         "visible": {
           "description": "Determines whether the filter is visible",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -5822,7 +6052,7 @@
               "const": "Search"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5840,7 +6070,7 @@
         },
         "visible": {
           "description": "Determines whether the filter is visible",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -5856,16 +6086,12 @@
               "const": "DateRange"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
         "label": {
           "description": "Label for the filter. Used by screen readers",
-          "type": "string"
-        },
-        "placeholder": {
-          "description": "Placeholder for the filter's input",
           "type": "string"
         },
         "value": {
@@ -5932,7 +6158,7 @@
         },
         "visible": {
           "description": "Determines whether the filter is visible",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -5948,7 +6174,7 @@
               "const": "Select"
             },
             {
-              "$ref": "#/$defs/simpleBinding"
+              "$ref": "#/definitions/simpleBinding"
             }
           ]
         },
@@ -5956,7 +6182,7 @@
           "description": "The value of the filter"
         },
         "data": {
-          "$ref": "#/$defs/data"
+          "$ref": "#/definitions/data"
         },
         "label": {
           "description": "Label for the filter. Used by screen readers",
@@ -5965,7 +6191,7 @@
         "items": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Configuration.Filter.Item"
+            "$ref": "#/definitions/Configuration.Filter.Item"
           }
         },
         "item": {
@@ -5973,7 +6199,7 @@
           "required": ["template"],
           "properties": {
             "template": {
-              "$ref": "#/$defs/Configuration.Filter.Item"
+              "$ref": "#/definitions/Configuration.Filter.Item"
             },
             "path": {
               "description": "Defines the path to the structure holding the data about the items",
@@ -5985,7 +6211,7 @@
         },
         "visible": {
           "description": "Determines whether the filter is visible",
-          "$ref": "#/$defs/visibility"
+          "$ref": "#/definitions/visibility"
         }
       }
     },
@@ -5999,7 +6225,7 @@
         },
         "type": {
           "description": "The type of the value for the parameter",
-          "$ref": "#/$defs/Configuration.BasicDataType"
+          "$ref": "#/definitions/Configuration.BasicDataType"
         },
         "label": {
           "description": "Label for the parameter for user-friendly visualization in the design-time editor",
@@ -6093,6 +6319,105 @@
         }
       }
     },
+    "timeAxisDef": {
+      "description": "Represents the configuration to customize the time axis",
+      "type": "object",
+      "properties": {
+        "levels": {
+          "$ref": "#/definitions/levelsDef"
+        }
+      }
+    },
+    "plotAreaDef": {
+      "description": "Plot area is a parent property which defines multiple other properties for smoothness and marker size",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "isSmoothed": {
+          "description": "Represents whether smoother curves are required or not",
+          "type": "boolean",
+          "default": false
+        },
+        "markerSize": {
+          "description": "Represents the size of the markers in scatter plots",
+          "type": "integer"
+        },
+        "dataLabel": {
+          "type": "object",
+          "description": "dataLabel is a parent property that defines other properties for type",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "description": "Defines whether to display percentage values or actual counts in the donut chart",
+              "type": "string",
+              "enum": ["value", "percentage"],
+              "default": "value"
+            }
+          }
+        }
+      }
+    },
+    "objectStreamCardsSettingsDef": {
+      "description": "Represents the Object Stream properties - properties that are passed to the Object Stream cards",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "showFirstActionInFooter": {
+          "description": "Represents the flag to show first action in footer of the Quickview cards",
+          "type": "boolean",
+          "default": false
+        },
+        "customActions": {
+          "description": "Represents the custom actions in the Quick View Cards",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/customActionsSetting"
+          }
+        }
+      }
+    },
+    "defaultSpanDef": {
+      "description": "Represents the card default grid size in columns and rows",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["cols", "rows"],
+          "properties": {
+            "cols": {
+              "description": "Represents the number of the number of grid columns",
+              "type": "integer"
+            },
+            "rows": {
+              "description": "Represents the number of the number of grid rows",
+              "type": "integer"
+            },
+            "showOnlyHeader": {
+              "description": "Represents if user wants to show only header part of card in resizable layout",
+              "type": "boolean",
+              "default": false
+            },
+            "minimumTitleRow": {
+              "description": "If user wants to show more text in title then he/she can configure no of lines to be shown in title(Maximum allowed 3 lines)",
+              "type": "integer",
+              "default": 1,
+              "pattern": "^[1-3]$"
+            },
+            "minimumSubTitleRow": {
+              "description": "If user wants to show more text in title then he/she can configure no of lines to be shown in sub-title(Maximum allowed 2 lines)",
+              "type": "integer",
+              "default": 1,
+              "pattern": "^[12]$"
+            }
+          }
+        },
+        {
+          "type": "string",
+          "enum": ["auto"]
+        }
+      ]
+    },
     "tab_setting": {
       "description": "Represents the tab specific properties - properties that are passed to a particular tab in a card",
       "type": "object",
@@ -6143,10 +6468,10 @@
           "additionalProperties": false,
           "properties": {
             "plotArea": {
-              "$ref": "#/$defs/plotAreaDef"
+              "$ref": "#/definitions/plotAreaDef"
             },
             "timeAxis": {
-              "$ref": "#/$defs/timeAxisDef"
+              "$ref": "#/definitions/timeAxisDef"
             }
           }
         },
@@ -6165,105 +6490,6 @@
           ]
         }
       }
-    },
-    "timeAxisDef": {
-      "description": "Represents the configuration to customize the time axis",
-      "type": "object",
-      "properties": {
-        "levels": {
-          "$ref": "#/$defs/levelsDef"
-        }
-      }
-    },
-    "plotAreaDef": {
-      "description": "Plot area is a parent property which defines multiple other properties for smoothness and marker size",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "isSmoothed": {
-          "description": "Represents whether smoother curves are required or not",
-          "type": "boolean",
-          "default": false
-        },
-        "markerSize": {
-          "description": "Represents the size of the markers in scatter plots",
-          "type": "integer"
-        },
-        "dataLabel": {
-          "type": "object",
-          "description": "dataLabel is a parent property that defines other properties for type",
-          "additionalProperties": false,
-          "properties": {
-            "type": {
-              "description": "Defines whether to display percentage values or actual counts in the donut chart",
-              "type": "string",
-              "enum": ["value", "percentage"],
-              "default": "value"
-            }
-          }
-        }
-      }
-    },
-    "objectStreamCardsSettingsDef": {
-      "description": "Represents the Object Stream properties - properties that are passed to the Object Stream cards",
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "showFirstActionInFooter": {
-          "description": "Represents the flag to show first action in footer of the Quickview cards",
-          "type": "boolean",
-          "default": false
-        },
-        "customActions": {
-          "description": "Represents the custom actions in the Quick View Cards",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/$defs/customActionsSetting"
-          }
-        }
-      }
-    },
-    "defaultSpanDef": {
-      "description": "Represents the card default grid size in columns and rows",
-      "oneOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["cols", "rows"],
-          "properties": {
-            "cols": {
-              "description": "Represents the number of the number of grid columns",
-              "type": "integer"
-            },
-            "rows": {
-              "description": "Represents the number of the number of grid rows",
-              "type": "integer"
-            },
-            "showOnlyHeader": {
-              "description": "Represents if user wants to show only header part of card in resizable layout",
-              "type": "boolean",
-              "default": false
-            },
-            "minimumTitleRow": {
-              "description": "If user wants to show more text in title then he/she can configure no of lines to be shown in title(Maximum allowed 3 lines)",
-              "type": "integer",
-              "default": 1,
-              "pattern": "^[1-3]$"
-            },
-            "minimumSubTitleRow": {
-              "description": "If user wants to show more text in title then he/she can configure no of lines to be shown in sub-title(Maximum allowed 2 lines)",
-              "type": "integer",
-              "default": 1,
-              "pattern": "^[12]$"
-            }
-          }
-        },
-        {
-          "type": "string",
-          "enum": ["auto"]
-        }
-      ]
     },
     "card_setting": {
       "description": "Represents the card specific properties - properties that are passed to the card",
@@ -6408,14 +6634,14 @@
           "default": true
         },
         "defaultSpan": {
-          "$ref": "#/$defs/defaultSpanDef"
+          "$ref": "#/definitions/defaultSpanDef"
         },
         "requireAppAuthorization": {
           "description": "Represents the cards for which authorization is required",
           "type": "string"
         },
         "objectStreamCardsSettings": {
-          "$ref": "#/$defs/objectStreamCardsSettingsDef"
+          "$ref": "#/definitions/objectStreamCardsSettingsDef"
         },
         "enableLocaleCurrencyFormatting": {
           "description": "Represents the flag to indicate the use of object number/smart field",
@@ -6463,10 +6689,10 @@
           "additionalProperties": false,
           "properties": {
             "plotArea": {
-              "$ref": "#/$defs/plotAreaDef"
+              "$ref": "#/definitions/plotAreaDef"
             },
             "timeAxis": {
-              "$ref": "#/$defs/timeAxisDef"
+              "$ref": "#/definitions/timeAxisDef"
             }
           }
         },
@@ -6483,14 +6709,6 @@
               "type": "object"
             }
           ]
-        },
-        "tabs": {
-          "description": "Represents the card with view switch control",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/$defs/tab_setting"
-          }
         }
       }
     },
@@ -6500,7 +6718,7 @@
       "additionalProperties": false,
       "patternProperties": {
         "^[a-zA-Z0-9_\\.\\-]+$": {
-          "$ref": "#/$defs/resizableLayoutVariantCardProperties"
+          "$ref": "#/definitions/resizableLayoutVariantCardProperties"
         }
       }
     },
@@ -6510,6 +6728,10 @@
       "required": ["template"],
       "additionalProperties": false,
       "properties": {
+        "sequencePos": {
+          "description": "Represents the position of the card in the sequence",
+          "type": "integer"
+        },
         "model": {
           "description": "Represents the model for the card",
           "type": "string",
@@ -6521,7 +6743,15 @@
           "pattern": "^[a-zA-Z0-9\\.]+$"
         },
         "settings": {
-          "$ref": "#/$defs/card_setting"
+          "$ref": "#/definitions/card_setting"
+        },
+        "tabs": {
+          "description": "Represents the card with view switch control",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/tab_setting"
+          }
         }
       }
     },
@@ -6564,10 +6794,6 @@
         }
       }
     },
-    "displayFormatEnum": {
-      "type": "string",
-      "enum": ["standard", "standardWide", "flat", "flatWide", "compact"]
-    },
     "defaultLayoutType_def": {
       "type": "string"
     },
@@ -6584,13 +6810,13 @@
               "pattern": "^([a-zA-Z][a-zA-Z0-9_]{0,39})(\\.[a-zA-Z][a-zA-Z0-9_]{0,39})*$"
             },
             "binding": {
-              "$ref": "#/$defs/component_binding_def"
+              "$ref": "#/definitions/component_binding_def"
             },
             "settings": {
-              "$ref": "#/$defs/component_setting_def"
+              "$ref": "#/definitions/component_setting_def"
             },
             "pages": {
-              "$ref": "#/$defs/component_pages_def"
+              "$ref": "#/definitions/component_pages_def"
             }
           }
         },
@@ -6604,13 +6830,13 @@
               "type": "string"
             },
             "binding": {
-              "$ref": "#/$defs/component_binding_def"
+              "$ref": "#/definitions/component_binding_def"
             },
             "settings": {
-              "$ref": "#/$defs/component_setting_def"
+              "$ref": "#/definitions/component_setting_def"
             },
             "pages": {
-              "$ref": "#/$defs/component_pages_def"
+              "$ref": "#/definitions/component_pages_def"
             }
           }
         }
@@ -6659,15 +6885,15 @@
       "properties": {
         "display": {
           "description": "Represents an action triggered by the user on UI: the navigation to display an object",
-          "$ref": "#/$defs/action_prop_def"
+          "$ref": "#/definitions/action_prop_def"
         },
         "create": {
           "description": "Represents an action triggered by the user on UI: the navigation to create an object",
-          "$ref": "#/$defs/action_prop_def"
+          "$ref": "#/definitions/action_prop_def"
         },
         "edit": {
           "description": "Represents an action triggered by the user on UI: the navigation to edit an object",
-          "$ref": "#/$defs/action_prop_def"
+          "$ref": "#/definitions/action_prop_def"
         }
       }
     },
@@ -6686,7 +6912,7 @@
           "type": "boolean"
         },
         "settings": {
-          "$ref": "#/$defs/component_setting_def"
+          "$ref": "#/definitions/component_setting_def"
         }
       }
     },
@@ -6695,7 +6921,7 @@
       "additionalProperties": false,
       "patternProperties": {
         "^[a-zA-Z0-9_\\.\\-]+[\\|]?[a-zA-Z0-9_\\.\\-]+$": {
-          "$ref": "#/$defs/pages_map"
+          "$ref": "#/definitions/pages_map"
         }
       }
     },
@@ -6781,7 +7007,7 @@
                   "required": ["embeddedComponents"],
                   "properties": {
                     "embeddedComponents": {
-                      "$ref": "#/$defs/embeddedComponent"
+                      "$ref": "#/definitions/embeddedComponent"
                     }
                   }
                 }
@@ -6806,7 +7032,7 @@
         },
         "refreshStrategyOnAppRestore": {
           "description": "Represents the refresh strategies configured for external display navigation while coming back to the source app",
-          "$ref": "#/$defs/refreshStrategies_prop_def"
+          "$ref": "#/definitions/refreshStrategies_prop_def"
         }
       }
     },
@@ -6825,38 +7051,38 @@
         },
         "component": {
           "description": "Represents the component and its settings that makes the page",
-          "$ref": "#/$defs/component_def"
+          "$ref": "#/definitions/component_def"
         },
         "navigation": {
           "description": "Represents the different navigation targets",
-          "$ref": "#/$defs/navigation_def"
+          "$ref": "#/definitions/navigation_def"
         },
         "embeddedComponents": {
           "description": "Represent reuse components that should be appended at the end of the template component",
-          "$ref": "#/$defs/embeddedComponent"
+          "$ref": "#/definitions/embeddedComponent"
         },
         "routingSpec": {
           "description": "Represents the routing specification",
-          "$ref": "#/$defs/routingSpec_def"
+          "$ref": "#/definitions/routingSpec_def"
         },
         "implementingComponent": {
           "description": "Represents the component to be loaded inside the canvas if sap.suite.ui.generic.template.Canvas is used as component name, and its settings",
-          "$ref": "#/$defs/implementingComponent_def"
+          "$ref": "#/definitions/implementingComponent_def"
         },
         "defaultLayoutType": {
           "description": "Default layout used to open the corresponding page in FlexibleColumnLayout",
-          "$ref": "#/$defs/defaultLayoutType_def"
+          "$ref": "#/definitions/defaultLayoutType_def"
         },
         "defaultLayoutTypeIfExternalNavigation": {
           "description": "Default layout used to open the corresponding page in FlexibleColumnLayout when reached via external navigation",
-          "$ref": "#/$defs/defaultLayoutType_def"
+          "$ref": "#/definitions/defaultLayoutType_def"
         },
         "pages": {
           "type": "object",
           "additionalProperties": false,
           "patternProperties": {
             "^[a-zA-Z0-9_\\.\\-]+[\\|]?[a-zA-Z0-9_\\.\\-]+$": {
-              "$ref": "#/$defs/pages_map"
+              "$ref": "#/definitions/pages_map"
             }
           }
         }
@@ -6877,36 +7103,36 @@
         },
         "component": {
           "description": "Represents the component and its settings that makes the page",
-          "$ref": "#/$defs/component_def"
+          "$ref": "#/definitions/component_def"
         },
         "navigation": {
           "description": "Represents the different navigation targets",
-          "$ref": "#/$defs/navigation_def"
+          "$ref": "#/definitions/navigation_def"
         },
         "embeddedComponents": {
           "description": "Represent reuse components that should be appended at the end of the template component",
-          "$ref": "#/$defs/embeddedComponent"
+          "$ref": "#/definitions/embeddedComponent"
         },
         "routingSpec": {
           "description": "Represents the routing specification",
-          "$ref": "#/$defs/routingSpec_def"
+          "$ref": "#/definitions/routingSpec_def"
         },
         "implementingComponent": {
           "description": "Represents the component to be loaded inside the canvas if sap.suite.ui.generic.template.Canvas is used as component name, and its settings",
-          "$ref": "#/$defs/implementingComponent_def"
+          "$ref": "#/definitions/implementingComponent_def"
         },
         "defaultLayoutType": {
           "description": "Default layout used to open the corresponding page in FlexibleColumnLayout",
-          "$ref": "#/$defs/defaultLayoutType_def"
+          "$ref": "#/definitions/defaultLayoutType_def"
         },
         "defaultLayoutTypeIfExternalNavigation": {
           "description": "Default layout used to open the corresponding page in FlexibleColumnLayout when reached via external navigation",
-          "$ref": "#/$defs/defaultLayoutType_def"
+          "$ref": "#/definitions/defaultLayoutType_def"
         },
         "pages": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/pages_array"
+            "$ref": "#/definitions/pages_array"
           }
         }
       }
@@ -6930,59 +7156,7 @@
         "propagateTitle": {
           "description": "Indicates whether this 'Component' target should propagate it's title to this component or not",
           "type": "boolean",
-          "default": "#/$defs/routing/config/propagateTitle"
-        }
-      }
-    },
-    "actualTargetAdditionComponentUsageFlex": {
-      "type": "object",
-      "required": ["id", "usage", "type"],
-      "properties": {
-        "usage": {
-          "description": "Represents the componentUsage of the component that will be created",
-          "type": "string"
-        },
-        "id": {
-          "description": "Represents the id of the created view or component",
-          "type": "string"
-        },
-        "type": {
-          "description": "Represents the type of the type Component",
-          "type": "string",
-          "enum": ["Component"]
-        },
-        "level": {
-          "description": "Represents the level of the current component which is used to define the transition direction when navigate to this component",
-          "type": "number",
-          "multipleOf": 1
-        }
-      }
-    },
-    "actualTargetAdditionStandardFlex": {
-      "type": "object",
-      "required": ["id", "name"],
-      "properties": {
-        "name": {
-          "description": "Represents the name of a view or component that will be created",
-          "type": "string"
-        },
-        "id": {
-          "description": "Represents the id of the created view or component",
-          "type": "string"
-        },
-        "path": {
-          "description": "Represents a prefix that is prepended in front of the view or component name",
-          "type": "string"
-        },
-        "type": {
-          "description": "Represents the type of the type View or Component",
-          "type": "string",
-          "enum": ["View", "Component"]
-        },
-        "level": {
-          "description": "Represents the level of the current view/component which is used to define the transition direction when navigate to this view/component",
-          "type": "number",
-          "multipleOf": 1
+          "default": "#/definitions/routing/config/propagateTitle"
         }
       }
     },
@@ -7038,6 +7212,29 @@
         }
       }
     },
+    "legacyTargetAddition": {
+      "type": "object",
+      "required": ["viewName"],
+      "properties": {
+        "viewName": {
+          "description": "Represents the name of a view that will be created",
+          "type": "string"
+        },
+        "viewId": {
+          "description": "Represents the id of the created view",
+          "type": "string"
+        },
+        "viewPath": {
+          "description": "Represents a prefix that is prepended in front of the viewName",
+          "type": "string"
+        },
+        "viewLevel": {
+          "description": "Represents the level of the current view which is used to define the transition direction when navigate to this view",
+          "type": "number",
+          "multipleOf": 1
+        }
+      }
+    },
     "routeWithoutName": {
       "description": "Represents the definition of route without the option 'name'. This is used when routes are defined in an object.",
       "type": "object",
@@ -7052,7 +7249,7 @@
         },
         "target": {
           "description": "Represents one or multiple names of targets which are displayed when the route is matched",
-          "$ref": "#/$defs/routeTarget"
+          "$ref": "#/definitions/routeTarget"
         },
         "titleTarget": {
           "description": "Represents the name of the target where the 'title' information should be taken",
@@ -7064,7 +7261,7 @@
       "description": "Represents the definition of each route",
       "allOf": [
         {
-          "$ref": "#/$defs/routeWithoutName"
+          "$ref": "#/definitions/routeWithoutName"
         },
         {
           "type": "object",
@@ -7105,6 +7302,28 @@
         }
       }
     },
+    "legacyTargetAdditionWithoutRequiredProp": {
+      "type": "object",
+      "properties": {
+        "viewName": {
+          "description": "Represents the name of a view that will be created",
+          "type": "string"
+        },
+        "viewId": {
+          "description": "Represents the id of the created view",
+          "type": "string"
+        },
+        "viewPath": {
+          "description": "Represents a prefix that is prepended in front of the viewName",
+          "type": "string"
+        },
+        "viewLevel": {
+          "description": "Represents the level of the current view which is used to define the transition direction when navigate to this view",
+          "type": "number",
+          "multipleOf": 1
+        }
+      }
+    },
     "target": {
       "description": "Represents the definition of each target",
       "type": "object",
@@ -7116,7 +7335,7 @@
         "viewType": {
           "description": "Represents the type of view that is going to be created",
           "type": "string",
-          "enum": ["XML"]
+          "enum": ["XML", "JSON", "JS", "HTML", "Template"]
         },
         "targetParent": {
           "description": "Represents the id of the view that contains the control specified by the 'controlId'",
@@ -7162,22 +7381,24 @@
       "oneOf": [
         {
           "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/$defs/routeTargetObject"
-              }
-            ]
-          }
+          "items": [
+            {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/definitions/routeTargetObject"
+                }
+              ]
+            }
+          ]
         },
         {
           "type": "string"
         },
         {
-          "$ref": "#/$defs/routeTargetObject"
+          "$ref": "#/definitions/routeTargetObject"
         }
       ]
     },
@@ -7219,7 +7440,7 @@
           "additionalProperties": true,
           "patternProperties": {
             "^[a-zA-Z0-9_\\-]*$": {
-              "$ref": "#/$defs/terminologySetting"
+              "$ref": "#/definitions/terminologySetting"
             }
           }
         },
@@ -7228,7 +7449,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/$defs/enhanceWithSetting"
+            "$ref": "#/definitions/enhanceWithSetting"
           }
         }
       }
@@ -7249,13 +7470,18 @@
               "type": "string"
             },
             "type": {
-              "description": "Represents the type of the view. Possible Values: XML",
+              "description": "Represents the type of the view. Possible Values: XML, JSON, JS, HTML, Template",
               "type": "string",
-              "enum": ["XML"]
+              "enum": ["XML", "JSON", "JS", "HTML", "Template"]
             },
             "id": {
               "description": "Represents the id of the view",
               "type": "string"
+            },
+            "async": {
+              "description": "Configure the targets for asynchronous loading",
+              "type": "boolean",
+              "default": false
             }
           }
         }
@@ -7275,6 +7501,11 @@
                   "description": "Represents the router class",
                   "type": "string"
                 },
+                "async": {
+                  "description": "Indicates whether the Views in routing are loaded asyncly",
+                  "type": "boolean",
+                  "default": false
+                },
                 "propagateTitle": {
                   "description": "Indicates whether the targets which have type 'Component' should propagate their title to this component or not",
                   "type": "boolean",
@@ -7288,17 +7519,20 @@
                   "properties": {
                     "target": {
                       "description": "Represents one or multiple names of targets that are displayed when no route is matched",
-                      "$ref": "#/$defs/routeTarget"
+                      "$ref": "#/definitions/routeTarget"
                     }
                   }
                 }
               }
             },
             {
-              "$ref": "#/$defs/target"
+              "$ref": "#/definitions/target"
             },
             {
-              "$ref": "#/$defs/actualTargetAdditionStandardWithoutRequiredProp"
+              "$ref": "#/definitions/legacyTargetAdditionWithoutRequiredProp"
+            },
+            {
+              "$ref": "#/definitions/actualTargetAdditionStandardWithoutRequiredProp"
             }
           ]
         },
@@ -7308,7 +7542,7 @@
               "description": "Represents the definition of routes by providing an array with elements which contain the configuration for each route",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/route"
+                "$ref": "#/definitions/route"
               }
             },
             {
@@ -7316,7 +7550,7 @@
               "type": "object",
               "patternProperties": {
                 "[\\s\\S]*": {
-                  "$ref": "#/$defs/routeWithoutName"
+                  "$ref": "#/definitions/routeWithoutName"
                 }
               }
             }
@@ -7331,20 +7565,27 @@
                 {
                   "allOf": [
                     {
-                      "$ref": "#/$defs/target"
+                      "$ref": "#/definitions/target"
                     },
                     {
-                      "$ref": "#/$defs/actualTargetAdditionStandard"
+                      "$ref": "#/definitions/legacyTargetAddition"
                     }
                   ]
                 },
                 {
                   "allOf": [
                     {
-                      "$ref": "#/$defs/target"
+                      "$ref": "#/definitions/target"
                     },
                     {
-                      "$ref": "#/$defs/actualTargetAdditionComponentUsage"
+                      "oneOf": [
+                        {
+                          "$ref": "#/definitions/actualTargetAdditionStandard"
+                        },
+                        {
+                          "$ref": "#/definitions/actualTargetAdditionComponentUsage"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -7365,9 +7606,9 @@
           "type": "string"
         },
         "type": {
-          "description": "Represents the type of the view. Possible Values: XML",
+          "description": "Represents the type of the view. Possible Values: XML, JSON, JS, HTML, Template",
           "type": "string",
-          "enum": ["XML"]
+          "enum": ["XML", "JSON", "JS", "HTML", "Template"]
         },
         "id": {
           "description": "Represents the id of the view",
@@ -7394,6 +7635,11 @@
                   "description": "Represents the router class",
                   "type": "string"
                 },
+                "async": {
+                  "description": "Indicates whether the Views in routing are loaded asyncly",
+                  "type": "boolean",
+                  "default": false
+                },
                 "bypassed": {
                   "description": "Represents information about targets to display when no route is matched",
                   "type": "object",
@@ -7402,17 +7648,18 @@
                   "properties": {
                     "target": {
                       "description": "Represents one or multiple names of targets that are displayed when no route is matched",
-                      "$ref": "#/$defs/routeTarget"
+                      "$ref": "#/definitions/routeTarget"
                     }
                   }
+                },
+                "viewPath": {
+                  "description": "Represents a prefix that is prepended in front of the viewName",
+                  "type": "string"
                 }
               }
             },
             {
-              "$ref": "#/$defs/target"
-            },
-            {
-              "$ref": "#/$defs/actualTargetAdditionStandardWithoutRequiredProp"
+              "$ref": "#/definitions/target"
             }
           ]
         },
@@ -7422,7 +7669,7 @@
               "description": "Represents the definition of routes by providing an array with elements which contain the configuration for each route",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/route"
+                "$ref": "#/definitions/route"
               }
             },
             {
@@ -7430,7 +7677,7 @@
               "type": "object",
               "patternProperties": {
                 "[\\s\\S]*": {
-                  "$ref": "#/$defs/routeWithoutName"
+                  "$ref": "#/definitions/routeWithoutName"
                 }
               }
             }
@@ -7445,20 +7692,78 @@
                 {
                   "allOf": [
                     {
-                      "$ref": "#/$defs/target"
+                      "$ref": "#/definitions/target"
                     },
                     {
-                      "$ref": "#/$defs/actualTargetAdditionStandardFlex"
+                      "type": "object",
+                      "required": ["viewName", "viewId"],
+                      "properties": {
+                        "viewName": {
+                          "description": "Represents the name of a view that will be created",
+                          "type": "string"
+                        },
+                        "viewId": {
+                          "description": "Represents the id of the created view",
+                          "type": "string"
+                        },
+                        "viewPath": {
+                          "description": "Represents a prefix that is prepended in front of the viewName",
+                          "type": "string"
+                        }
+                      }
                     }
                   ]
                 },
                 {
                   "allOf": [
                     {
-                      "$ref": "#/$defs/target"
+                      "$ref": "#/definitions/target"
                     },
                     {
-                      "$ref": "#/$defs/actualTargetAdditionComponentUsageFlex"
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "required": ["name", "id"],
+                          "properties": {
+                            "name": {
+                              "description": "Represents the name of a view or component that will be created",
+                              "type": "string"
+                            },
+                            "id": {
+                              "description": "Represents the id of the created view or component",
+                              "type": "string"
+                            },
+                            "path": {
+                              "description": "Represents a prefix that is prepended in front of the view or component name",
+                              "type": "string"
+                            },
+                            "type": {
+                              "description": "Represents the type of the type View or Component",
+                              "type": "string",
+                              "enum": ["View", "Component"]
+                            }
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "required": ["usage", "id", "type"],
+                          "properties": {
+                            "usage": {
+                              "description": "Represents the componentUsage of the component that will be created",
+                              "type": "string"
+                            },
+                            "id": {
+                              "description": "Represents the id of the created view or component",
+                              "type": "string"
+                            },
+                            "type": {
+                              "description": "Represents the type of the type Component",
+                              "type": "string",
+                              "enum": ["Component"]
+                            }
+                          }
+                        }
+                      ]
                     }
                   ]
                 }
@@ -7479,32 +7784,8 @@
           "patternTransformCode": "''.split('').map(function(char) { console.log(char);  if (/[a-z]/i.test(char)) { return `[${char.toUpperCase()}${char.toLowerCase()}]`; } else { return char; } } ).join('')",
           "patternFromRuntime": "^((Ctrl|Shift|Alt)(\\+)?){0,3}([A-Za-z0-9\\.,\\-\\*\\/=]|Plus|Tab|Space|Enter|Backspace|Home|Delete|End|Pageup|Pagedown|Escape|ArrowUp|ArrowDown|ArrowLeft|ArrowRight|F[1-9]|F1[0-2])$",
           "pattern": "^(([Cc][Tt][Rr][Ll]|[Ss][Hh][Ii][Ff][Tt]|[Aa][Ll][Tt])(\\+)?){0,3}([A-Za-z0-9\\.,\\-\\*\\/=]|[Pp][Ll][Uu][Ss]|[Tt][Aa][Bb]|[Ss][Pp][Aa][Cc][Ee]|[Ee][Nn][Tt][Ee][Rr]|[Bb][Aa][Cc][Kk][Ss][Pp][Aa][Cc][Ee]|[Hh][Oo][Mm][Ee]|[Dd][Ee][Ll][Ee][Tt][Ee]|[Ee][Nn][Dd]|[Pp][Aa][Gg][Ee][Uu][Pp]|[Pp][Aa][Gg][Ee][Dd][Oo][Ww][Nn]|[Ee][Ss][Cc][Aa][Pp][Ee]|[Aa][Rr][Rr][Oo][Ww][Uu][Pp]|[Aa][Rr][Rr][Oo][Ww][Dd][Oo][Ww][Nn]|[Aa][Rr][Rr][Oo][Ww][Ll][Ee][Ff][Tt]|[Aa][Rr][Rr][Oo][Ww][Rr][Ii][Gg][Hh][Tt]|F[1-9]|F1[0-2])$"
-        },
-        "ref": {
-          "description": "A string referencing a predefined shortcut command. Must start with 'sap:'.",
-          "type": "string",
-          "pattern": "^sap:[a-zA-Z0-9_-]+$"
-        },
-        "description": {
-          "description": "A string containing a placeholder that follows the format {{someKey}}.",
-          "type": "string",
-          "pattern": "^\\{\\{[a-zA-Z0-9_]+\\}\\}$"
         }
-      },
-      "oneOf": [
-        {
-          "required": ["shortcut"],
-          "not": {
-            "required": ["ref"]
-          }
-        },
-        {
-          "required": ["ref"],
-          "not": {
-            "required": ["shortcut"]
-          }
-        }
-      ]
+      }
     },
     "booleanOrString": {
       "oneOf": [
@@ -7545,7 +7826,7 @@
               "type": "object",
               "patternProperties": {
                 "^[a-zA-Z0-9_\\-]*$": {
-                  "$ref": "#/$defs/terminologySetting"
+                  "$ref": "#/definitions/terminologySetting"
                 }
               }
             }
@@ -7572,7 +7853,7 @@
               "type": "object",
               "patternProperties": {
                 "^[a-zA-Z0-9_\\-]*$": {
-                  "$ref": "#/$defs/terminologySetting"
+                  "$ref": "#/definitions/terminologySetting"
                 }
               }
             }
@@ -7647,7 +7928,7 @@
         {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/config"
+            "$ref": "#/definitions/config"
           }
         },
         {
@@ -7691,7 +7972,7 @@
           "default": false
         },
         "settings": {
-          "$ref": "#/$defs/ui5setting"
+          "$ref": "#/definitions/ui5setting"
         }
       }
     },
@@ -7701,7 +7982,7 @@
       "properties": {
         "minVersion": {
           "description": "Represents minimal version of ui5 component",
-          "$ref": "#/$defs/version"
+          "$ref": "#/definitions/version"
         },
         "lazy": {
           "description": "Represents Indicator to lazy loading component",
@@ -7716,7 +7997,7 @@
       "properties": {
         "minVersion": {
           "description": "Represents minimal version of ui5 library",
-          "$ref": "#/$defs/version"
+          "$ref": "#/definitions/version"
         },
         "lazy": {
           "description": "Represents Indicator to lazy loading lib",
@@ -7751,11 +8032,11 @@
         },
         "componentData": {
           "description": "Represents component data for the Component",
-          "$ref": "#/$defs/config"
+          "$ref": "#/definitions/config"
         },
         "settings": {
           "description": "Represents settings for the Component",
-          "$ref": "#/$defs/config"
+          "$ref": "#/definitions/config"
         },
         "lazy": {
           "description": "Represents Indicator to lazy loading component usage, default true",
@@ -7767,8 +8048,19 @@
     "resource": {
       "type": "object",
       "properties": {
+        "js": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["uri"],
+            "properties": {
+              "uri": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "css": {
-          "description": "Specifies additional CSS resources of the Component.",
           "type": "array",
           "items": {
             "type": "object",
@@ -7913,9 +8205,8 @@
                       "enum": ["plain", "array"]
                     },
                     "prompt": {
-                      "description": "[Deprecated] Indicates the administrator should be prompted to supply a value when creating a tile",
-                      "type": "boolean",
-                      "deprecated": true
+                      "description": "DEPRECATED - Indicates the administrator should be prompted to supply a value when creating a tile",
+                      "type": "boolean"
                     }
                   }
                 },
@@ -7994,7 +8285,7 @@
         },
         "settings": {
           "description": "Represents data source type specific attributes (key, value pairs)",
-          "$ref": "#/$defs/setting"
+          "$ref": "#/definitions/setting"
         },
         "customType": {
           "description": "Represents a custom data source type flag. So the type can be any string if its true, and only enum values if false",
@@ -8029,7 +8320,7 @@
         },
         "settings": {
           "description": "Represents data source type specific attributes (key, value pairs)",
-          "$ref": "#/$defs/setting"
+          "$ref": "#/definitions/setting"
         },
         "customType": {
           "type": "boolean",
@@ -8044,7 +8335,7 @@
         "odataVersion": {
           "description": "Represents version of OData: 2.0 is default",
           "type": "string",
-          "enum": ["2.0", "4.0", "4.01"]
+          "enum": ["2.0", "4.0"]
         },
         "localUri": {
           "description": "Represents path to local meta data document or annotation uri",
@@ -8070,10 +8361,10 @@
             "type": "object",
             "properties": {
               "objectName": {
-                "$ref": "#/$defs/objectName"
+                "$ref": "#/definitions/objectName"
               },
               "objectType": {
-                "$ref": "#/$defs/objectType"
+                "$ref": "#/definitions/objectType"
               },
               "packageName": {
                 "type": "string"
@@ -8181,7 +8472,7 @@
             },
             "title": {
               "description": "Represents a title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-              "$ref": "#/$defs/i18n_key_string",
+              "$ref": "#/definitions/i18n_key_string",
               "i18n": {
                 "type": "XTIT",
                 "comment": "Application title"
@@ -8189,7 +8480,7 @@
             },
             "subTitle": {
               "description": "Represents a subtitle; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-              "$ref": "#/$defs/i18n_key_string",
+              "$ref": "#/definitions/i18n_key_string",
               "i18n": {
                 "type": "XTIT",
                 "comment": "Application subtitle"
@@ -8197,7 +8488,7 @@
             },
             "shortTitle": {
               "description": "Represents a shorter version of the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-              "$ref": "#/$defs/i18n_key_string",
+              "$ref": "#/definitions/i18n_key_string",
               "i18n": {
                 "type": "XTIT",
                 "comment": "Shorter version of the application title"
@@ -8205,7 +8496,7 @@
             },
             "info": {
               "description": "Represents additional information to the title; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-              "$ref": "#/$defs/i18n_key_string",
+              "$ref": "#/definitions/i18n_key_string",
               "i18n": {
                 "type": "YINF",
                 "comment": "Additional information to the application title"
@@ -8236,10 +8527,10 @@
             },
             "deviceTypes": {
               "description": "Represents device types for which application is developed",
-              "$ref": "#/$defs/deviceType"
+              "$ref": "#/definitions/deviceType"
             },
             "signature": {
-              "$ref": "#/$defs/signature_def"
+              "$ref": "#/definitions/signature_def"
             }
           }
         }
@@ -8267,10 +8558,10 @@
     "dataSource": {
       "oneOf": [
         {
-          "$ref": "#/$defs/dataSourceEnum"
+          "$ref": "#/definitions/dataSourceEnum"
         },
         {
-          "$ref": "#/$defs/dataSourceCustom"
+          "$ref": "#/definitions/dataSourceCustom"
         }
       ]
     },
@@ -8278,7 +8569,7 @@
       "type": "array",
       "items": {
         "description": "Represents a tag; to make this property language dependent (recommended), use a key in double curly brackets '{{key}}'",
-        "$ref": "#/$defs/i18n_key_string"
+        "$ref": "#/definitions/i18n_key_string"
       },
       "i18n": {
         "type": "XFLD",
@@ -8315,7 +8606,7 @@
               "additionalProperties": false,
               "patternProperties": {
                 "^[a-zA-Z0-9_\\-]*$": {
-                  "$ref": "#/$defs/terminologySetting"
+                  "$ref": "#/definitions/terminologySetting"
                 }
               }
             }
@@ -8343,7 +8634,7 @@
               "additionalProperties": false,
               "patternProperties": {
                 "^[a-zA-Z0-9_\\-]*$": {
-                  "$ref": "#/$defs/terminologySetting"
+                  "$ref": "#/definitions/terminologySetting"
                 }
               }
             }

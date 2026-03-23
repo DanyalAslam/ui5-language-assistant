@@ -41,7 +41,6 @@ import {
   bindingSemanticTokensProvider,
 } from "./binding-semantic-token-provider";
 import { OPEN_FRAMEWORK } from "@ui5-language-assistant/constant";
-import type { ManifestVersionChange } from "@ui5-language-assistant/context";
 
 type UI5Model = {
   url: string;
@@ -69,9 +68,8 @@ function init(context: ExtensionContext): void {
       async (model: UI5Model): Promise<void> => await updateCurrentModel(model)
     );
     client.onNotification(
-      "UI5LanguageAssistant/manifestVersionChanged",
-      (manifestChange: ManifestVersionChange) =>
-        getManifestSchemaProvider(context, manifestChange)
+      "UI5LanguageAssistant/context-error",
+      (error: Error) => handleContextError(error)
     );
   });
 }
@@ -214,7 +212,7 @@ async function updateCurrentModel(model: UI5Model | undefined): Promise<void> {
         if (response) {
           version = `${version} (local)`;
           tooltipText =
-            "Alternative (local) SAPUI5 web server is defined in user or workspace settings. Using SAPUI5 version fetched from the local server";
+            "Alternative (local) SAP UI5 web server is defined in user or workspace settings. Using SAP UI5 version fetched from the local server";
         }
       }
       statusBarItem.tooltip = tooltipText;
@@ -225,6 +223,23 @@ async function updateCurrentModel(model: UI5Model | undefined): Promise<void> {
     } else {
       statusBarItem.hide();
     }
+  }
+}
+
+let showedOnce = false;
+function handleContextError(error: Error & { code?: string }) {
+  if (showedOnce) {
+    return;
+  }
+  showedOnce = true;
+  if (error.code) {
+    window.showErrorMessage(
+      "[SAP UI5 SDK](https://tools.hana.ondemand.com/#sapui5) is not accessible. Connect to the internet or setup local web server for offline work."
+    );
+  } else {
+    window.showErrorMessage(
+      "An error has occurred building context. Please open an [issue](https://github.com/SAP/ui5-language-assistant/issues)"
+    );
   }
 }
 

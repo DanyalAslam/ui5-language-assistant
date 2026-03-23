@@ -2,18 +2,18 @@
   "name": "@ui5-language-assistant/vscode-ui5-language-assistant-bas-ext",
   "description": "A wrapper module for BAS simple extension around Language Support For SAPUI5",
   "license": "Apache-2.0",
-  "version": "4.0.93",
+  "version": "4.0.73",
   "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/SAP/ui5-language-assistant"
   },
   "scripts": {
-    "ci": "node ./scripts/copy"
+    "ci": "node ./scripts/copy",
+    "clean": "rimraf ./dist ./lib ./coverage *.vsix NOTICE LICENSE"
   },
   "devDependencies": {
-    "fs-extra": "10.1.0",
-    "vscode-ui5-language-assistant": "4.0.94"
+    "fs-extra": "10.1.0"
   },
   "files": [
     "*.vsix",

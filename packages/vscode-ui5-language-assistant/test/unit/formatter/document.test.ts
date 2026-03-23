@@ -19,9 +19,6 @@ describe("document formatter", () => {
   beforeEach(() => {
     jest.resetAllMocks();
     textEditSpy.mockImplementation((range, text) => ({ newText: text, range }));
-    getConfigSpy.mockReturnValue({
-      get: jest.fn().mockReturnValue(false),
-    } as unknown as WorkspaceConfiguration);
   });
 
   const document: TextDocument = {
@@ -135,12 +132,7 @@ describe("document formatter", () => {
     });
 
     describe("error cases", () => {
-      beforeEach(() => {
-        jest.resetAllMocks();
-        getConfigSpy.mockReturnValue({
-          get: jest.fn().mockReturnValue(false),
-        } as unknown as WorkspaceConfiguration);
-      });
+      beforeEach(() => jest.resetAllMocks());
       const assert = (opt?: FormattingOptions) => {
         jest.spyOn(document, "getText").mockReturnValue("<<tag");
         formatRange(document, range, opt);

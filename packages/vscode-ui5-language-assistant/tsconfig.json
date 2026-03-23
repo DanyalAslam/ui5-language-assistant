@@ -1,9 +1,35 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "lib",
     "baseUrl": "."
   },
-  "include": ["src/**/*", "test/**/*", "api.d.ts", "src/manifest/*.json"]
+  "include": ["src/**/*", "test/**/*", "api.d.ts", "src/manifest/*.json"],
+  "references": [
+    {
+      "path": "../binding-parser"
+    },
+    {
+      "path": "../constant"
+    },
+    {
+      "path": "../context"
+    },
+    {
+      "path": "../logic-utils"
+    },
+    {
+      "path": "../settings"
+    },
+    {
+      "path": "../language-server"
+    },
+    {
+      "path": "../../test-packages/framework"
+    },
+    {
+      "path": "../binding"
+    }
+  ]
 }

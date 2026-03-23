@@ -1,32 +1,5 @@
 # Change Log
 
-## 4.0.19
-
-### Patch Changes
-
-- bb43dd2: fix: update ui5-version
-- Updated dependencies [bb43dd2]
-  - @ui5-language-assistant/constant@0.0.4
-  - @ui5-language-assistant/semantic-model-types@4.0.14
-
-## 4.0.18
-
-### Patch Changes
-
-- ad36b43: fix: catch exception
-- Updated dependencies [ad36b43]
-  - @ui5-language-assistant/constant@0.0.3
-  - @ui5-language-assistant/semantic-model-types@4.0.13
-
-## 4.0.17
-
-### Patch Changes
-
-- c8bb0ec: feat: new logo
-- Updated dependencies [c8bb0ec]
-  - @ui5-language-assistant/constant@0.0.2
-  - @ui5-language-assistant/semantic-model-types@4.0.12
-
 ## 4.0.16
 
 ### Patch Changes

@@ -1,26 +1,5 @@
 # Change Log
 
-## 4.0.14
-
-### Patch Changes
-
-- Updated dependencies [bb43dd2]
-  - @ui5-language-assistant/constant@0.0.4
-
-## 4.0.13
-
-### Patch Changes
-
-- Updated dependencies [ad36b43]
-  - @ui5-language-assistant/constant@0.0.3
-
-## 4.0.12
-
-### Patch Changes
-
-- Updated dependencies [c8bb0ec]
-  - @ui5-language-assistant/constant@0.0.2
-
 ## 4.0.11
 
 ### Patch Changes

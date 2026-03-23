@@ -2,7 +2,9 @@ import { readdirSync } from "fs";
 import { readJsonSync, readJson, existsSync } from "fs-extra";
 import { resolve, dirname } from "path";
 import { filter, reduce, has, forEach, get } from "lodash";
-import { FetchResponse } from "@ui5-language-assistant/language-server";
+import {
+  FetchResponse
+} from "@ui5-language-assistant/logic-utils";
 import {
   UI5Framework,
   UI5SemanticModel,
@@ -14,7 +16,7 @@ const MODEL_CACHE: Record<TestModelVersion, UI5SemanticModel> =
   Object.create(null);
 
 const fixes: Record<TestModelVersion, TypeNameFix> = {
-  "1.71.80": {
+  "1.71.70": {
     array: "any[]",
     Array: "any[]",
     bloolean: undefined,
@@ -47,7 +49,7 @@ const fixes: Record<TestModelVersion, TypeNameFix> = {
     "sap.viz.ui5.controls.VizRangeSlider": undefined,
     any: "any",
   },
-  "1.84.51": {
+  "1.84.41": {
     array: "any[]",
     Array: "any[]",
     Control: "sap.ui.core.Control",
@@ -258,8 +260,8 @@ type LibraryFix = (content: Json) => void;
 
 // Library version -> library name -> fix function
 const libraryFixes: Record<TestModelVersion, Record<string, LibraryFix[]>> = {
-  "1.71.80": {},
-  "1.84.51": {},
+  "1.71.70": {},
+  "1.84.41": {},
   "1.96.27": {
     "sap.ui.mdc": [
       (content: Json): void => {
